@@ -1,0 +1,29 @@
+div.card-menu-b {
+    background-color: gray;
+    overflow: auto;
+    white-space: nowrap;
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: bold;
+  }
+  
+  div.card-menu-b a,button {
+    display: inline-block;
+    color: black;
+    /* text-align: center; */
+    padding: 14px;
+    text-decoration: none;
+  }
+  
+  /* div.card-menu-b a,button:hover {
+    background-color: #777;
+  } */
+  .card-menu-aafter .card-menu-nafter{
+      display: none;
+  }
+  .card-button-alcoolice:hover .card-menu-aafter {
+    display: block;
+  }
+   .card-button-alcoolice:hover .card-menu-nafter {
+    display: block;
+  }
