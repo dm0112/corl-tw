@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login / Register</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <script src="logReg.js"></script>
+</head>
+
+<body>
+    <div class="menu">
+        <div class="leftMenu">
+            <a href="home.html">Home</a>
+
+            <div class="subMenu">
+                <div class="subMenuBtn">Alcoolice</div>
+                <div class="subMenuContent">
+                    <a href="home.html">Capace</a>
+                    <a href="home.html">Dopuri</a>
+                    <a href="home.html">Etichete</a>
+                </div>
+            </div>
+
+
+            <div class="subMenu">
+                <div class="subMenuBtn">Non-alcoolice</div>
+                <div class="subMenuContent">
+                    <a href="home.html">Capace</a>
+                    <a href="home.html">Dopuri</a>
+                    <a href="home.html">Etichete</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="rightMenu">
+            <div class="subMenu">
+                <div class="subMenuBtn">Utilizator</div>
+                <div class="subMenuContent">
+                    <a href="panel.html">Panou Utilizator</a>
+                    <a href="admin.html">Panou Administrator</a>
+                    <a href="logReg.html">Login / Register</a>
+                    <div class="logoutBtn">Logout</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <form class="logRegFrame" id="logFrame">
+        <label><b>Username</b></label>
+        <input class="username" type="text" placeholder="Enter username" required></input>
+
+        <label><b>Password</b></label>
+        <input class="password" type="password" placeholder="Enter password" required></input>
+        <div class="logRegButtons">
+            <button class="loginBtn" type="submit">Login</button>
+            <button class="registerBtn" type="submit" onclick="showRegister()">Register</button>
+        </div>
+
+        <div class="logRegButtons">
+            <div class="rememberMe">
+                <input type="checkbox"></input>
+                <label>Remember me?</label>
+            </div>
+            <a href="forgotPass.html ">Forgot password?</a>
+        </div>
+    </form>
+
+    <form class="logRegFrame" id="regFrame">
+        <label><b>Full Name</b></label>
+        <input class="fullName" placeholder="Your name" type="text" required></input>
+
+        <label><b>City</b></label>
+        <input class="city" placeholder="Your residence" type="text" required></input>
+
+        <label><b>Username</b></label>
+        <input class="username" placeholder="Enter username" type="text" required></input>
+
+        <label><b>Password</b></label>
+        <input class="password" placeholder="Enter password" type="password" required></input>
+
+        <div class="logRegButtons">
+            <button class="loginBtn" type="submit" onclick="showLogin()">Login</button>
+            <button class="registerBtn" type="submit">Register</button>
+        </div>
+    </form>
+</body>
+
+</html>
