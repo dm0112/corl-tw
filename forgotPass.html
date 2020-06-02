@@ -4,7 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Forgot password</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 
 <body>
@@ -14,37 +15,47 @@
             <a href="home.html">Home</a>
 
             <div class="subMenu">
-                <div class="subMenuBtn">Alcoolice</div>
+                <div class="subMenuBtn">Alcoholic</div>
                 <div class="subMenuContent">
-                    <a href="home.html">Capace</a>
-                    <a href="home.html">Dopuri</a>
-                    <a href="home.html">Etichete</a>
+                    <a href="home.html">Caps</a>
+                    <a href="home.html">Corks</a>
+                    <a href="home.html">Labels</a>
                 </div>
             </div>
 
 
             <div class="subMenu">
-                <div class="subMenuBtn">Non-alcoolice</div>
+                <div class="subMenuBtn">Non-alcoholic</div>
                 <div class="subMenuContent">
-                    <a href="home.html">Capace</a>
-                    <a href="home.html">Dopuri</a>
-                    <a href="home.html">Etichete</a>
+                    <a href="home.html">Caps</a>
+                    <a href="home.html">Corks</a>
+                    <a href="home.html">Labels</a>
                 </div>
             </div>
         </div>
 
         <div class="rightMenu">
             <div class="subMenu">
-                <div class="subMenuBtn">Utilizator</div>
+                <div class="subMenuBtn">User</div>
                 <div class="subMenuContent">
-                    <a href="panel.html">Panou Utilizator</a>
-                    <a href="admin.html">Panou Administrator</a>
+                    <a href="panel.html">Preferences</a>
+                    <a href="admin.html">Administrator Panel</a>
                     <a href="logReg.html">Login / Register</a>
                     <div class="logoutBtn">Logout</div>
                 </div>
             </div>
         </div>
     </div>
+
+    <form class="logRegFrame" id="forgotFrame">
+        <label><b>E-mail</b></label>
+        <input class="email" type="email" placeholder="Your e-mail" required>
+
+        <div class="logRegButtons">
+            <button class="forgotBtn" type="submit">Send e-mail</button>
+        </div>
+    </form>
+
 </body>
 
 </html>
