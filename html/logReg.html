@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login / Register</title>
+    <link rel="stylesheet" type="text/css" href="../css/style.css">
+    <script src="../js/logReg.js"></script>
+</head>
+
+<body>
+
+    <div class="menu">
+        <div class="leftMenu">
+            <a href="../home.html">Home</a>
+
+            <div class="subMenu">
+                <div class="subMenuBtn">Alcoholic</div>
+                <div class="subMenuContent">
+                    <a href="../home.html">Caps</a>
+                    <a href="../home.html">Corks</a>
+                    <a href="../home.html">Labels</a>
+                </div>
+            </div>
+
+
+            <div class="subMenu">
+                <div class="subMenuBtn">Non-alcoholic</div>
+                <div class="subMenuContent">
+                    <a href="../home.html">Caps</a>
+                    <a href="../home.html">Corks</a>
+                    <a href="../home.html">Labels</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="rightMenu">
+            <div class="subMenu" id="notLoggedIn">
+                <a href="../html/logReg.html">Login / Register</a>
+            </div>
+
+            <div class="subMenu" id="loggedIn">
+                <div class="subMenuBtn" id="usernameMenu">User</div>
+                <div class="subMenuContent">
+                    <a href="../html/panel.html">Preferences</a>
+                    <a href="../html/admin.html" id="adminPanel">Administrator Panel</a>
+                    <div class="logoutBtn">Logout</div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="logRegFrame" id="logFrame">
+        <label><b>Username</b></label>
+        <input class="username" id="userLog" type="text" placeholder="Enter username" name="username" required>
+
+        <label><b>Password</b></label>
+        <input class="password" id="passLog" type="password" placeholder="Enter password" name="password" required>
+        <div class="logRegButtons">
+            <button class="loginBtn" type="button" onclick="tryLogin()" name="loginBtn">Login</button>
+            <button class="registerBtn" type="button" onclick="showRegister()">Register</button>
+        </div>
+
+        <div class="logRegButtons">
+            <div class="rememberMe">
+                <input type="checkbox">
+                <label>Remember me?</label>
+            </div>
+            <a href="../html/forgotPass.html ">Forgot password?</a>
+        </div>
+    </div>
+
+    <div class="logRegFrame" id="regFrame">
+        <!--
+        <label><b>Full Name</b></label>
+        <input class="fullName" placeholder="Your name" type="text" required>
+
+        <label><b>City</b></label>
+        <input class="city" placeholder="Your residence" type="text" required> -->
+
+        <label><b>E-mail</b></label>
+        <input class="email" id="emailReg" placeholder="Your e-mail" type="email" name="email" required>
+
+        <label><b>Username</b></label>
+        <input class="username" id="userReg" placeholder="Enter username" type="text" name="username" required>
+
+        <label><b>Password</b></label>
+        <input class="password" id="passReg" placeholder="Enter password" type="password" name="password" required>
+
+        <div class="logRegButtons">
+            <button class="loginBtn" type="button" onclick="showLogin()">Login</button>
+            <button class="registerBtn" type="button" onclick="tryRegister()" name="registerBtn">Register</button>
+        </div>
+    </div>
+</body>
+
+</html>
