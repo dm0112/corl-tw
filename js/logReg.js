@@ -57,7 +57,7 @@ function tryLogin() {
                 alert("Invalid credentials!");
             else {
                 alert("You have been logged in!");
-                //document.location.href = "home.html";
+                //document.location.href = "index.html";
                 document.getElementById("notLoggedIn").style.display = "none";
                 document.getElementById("loggedIn").style.display = "flex";
 
