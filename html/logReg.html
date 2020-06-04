@@ -18,21 +18,22 @@
             <div class="subMenu">
                 <div class="subMenuBtn">Alcoholic</div>
                 <div class="subMenuContent">
-                    <a href="../index.html">Caps</a>
-                    <a href="../index.html">Corks</a>
-                    <a href="../index.html">Labels</a>
+                    <a href="#">Caps</a>
+                    <a href="#">Corks</a>
+                    <a href="#">Labels</a>
                 </div>
             </div>
-
+            <!-- modificat href pentru bauturi -->
 
             <div class="subMenu">
                 <div class="subMenuBtn">Non-alcoholic</div>
                 <div class="subMenuContent">
-                    <a href="../index.html">Caps</a>
-                    <a href="../index.html">Corks</a>
-                    <a href="../index.html">Labels</a>
+                    <a href="#">Caps</a>
+                    <a href="#">Corks</a>
+                    <a href="#">Labels</a>
                 </div>
             </div>
+        
         </div>
 
         <div class="rightMenu">
@@ -72,7 +73,8 @@
         </div>
     </div>
 
-    <div class="logRegFrame" id="regFrame">
+    <div class="logRegFrame" id="regFrame"> 
+        <!-- <form class="logRegFrame" id="regFrame">    part 1 /3 pentru a inlocui cu form--> 
         <!--
         <label><b>Full Name</b></label>
         <input class="fullName" placeholder="Your name" type="text" required>
@@ -92,7 +94,10 @@
         <div class="logRegButtons">
             <button class="loginBtn" type="button" onclick="showLogin()">Login</button>
             <button class="registerBtn" type="button" onclick="tryRegister()" name="registerBtn">Register</button>
+            <!-- <input type = "submit" value = "Register" class="registerBtn" name="registerBtn" onclick="tryRegister()">  part 2 -->
+            <!-- button does refresh the page, input doesn't and the url remains with the details + needs styles fixing (css for button doesn't apply to input) -->
         </div>
+    <!-- </form> part 3-->
     </div>
 </body>
 

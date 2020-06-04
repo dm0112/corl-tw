@@ -1,5 +1,5 @@
 function test() {
-    fetch('http://localhost/php/logRegAPI.php?email=obraznicul38@gmail.com&user=SlopestylePro')
+    fetch('http://localhost:4004/php/filter.php?name=item1&description=&type=1')
         .then(response => response.json())
         .then(data => console.log(data));
 }

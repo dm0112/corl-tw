@@ -24,4 +24,10 @@ else {
     echo json_encode($response);
 }
 
+// $stmt = mysqli_prepare($conn, "SELECT * FROM users WHERE ");
+// mysqli_stmt_bind_param($stmt,'i',$name);
+// mysqli_stmt_execute($stmt);
+// $stmt -> store_result();
+
 ?>
+
