@@ -35,14 +35,15 @@ function addItem(){
     // ----  
     // getBase64(img, callback);
     //  imaginea nu se bine in db, de continuat aici
-    api = api.concat("&name=", name, "&description=", description, "&country=", country,"&type=", type, "&category=", category,"&price=",price,"&img=",img);
+    api = api.concat("name=", name, "&description=", description, "&country=", country,"&type=", type, "&category=", category,"&price=",price,"&img=",img);
     // api = api.concat("&img=",img);
-    console.log("&name=", name, "&description=", description, "&country=", country,"&type=", type, "&category=", category,"&price=",price,"&img=",img)
+    console.log("name=", name, "&description=", description, "&country=", country,"&type=", type, "&category=", category,"&price=",price,"&img=",img)
     fetch(api)
     .then(result => result.text())
     .then(data => {
         
         console.log(data);
+        window.location.replace("index.html");
         
     });
 }

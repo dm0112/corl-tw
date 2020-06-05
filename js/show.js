@@ -1,23 +1,32 @@
-function filter(){
-    var api = 'http://localhost:4004/php/filterAPI.php?';
-
-    var name = document.getElementById("name").value;
-    var description = document.getElementById("description").value;
-    var country = document.getElementById("country").value;
-    var type = document.getElementById("type").value;
-    var category = document.getElementById("category").value;
-    var price = document.getElementById("price").value;
-    api = api.concat("name=", name, "&description=", description, "&country=", country,"&type=", type, "&category=", category,"&price=",price);
-
+function showAll(){
+    var api = 'http://localhost:4004/php/populateAPI.php?whichOnes=all';
     fetch(api)
         .then(result => result.json())
         .then(data => {
             
             // console.log(data);
+            // data.forEach(element => {
+            //     console.log(element);
+            //     console.log( " ");
+            // });
+            populate(data);
+        });
+
+}
+function showPart(cat, type){
+    var api = 'http://localhost:4004/php/populateAPI.php?whichOnes=';
+    api = api.concat(cat,"&type=",type);
+    fetch(api)
+        .then(result => result.json())
+        .then(data => { 
+            
+            console.log(data);
             cleanPage();
             populate(data);
+
             
         });
+
 }
 
 function populate(items){
@@ -75,6 +84,11 @@ function type(a){
         return "Non-Alcoholic";
     return "";
 }
+// function addCss(){ // de adaugat hover - fixat eliminand "alt" property
+//     var cssFile = window.document.styleSheets[0];
+//     cssFile.insertRule('#imgItem:hover{border-radius: 20px;transform: scale(1.7);} ');
+// }
+
 
 // stergem elementele existente pentru a le afisa pe cele filtrate
 function cleanPage(){ 

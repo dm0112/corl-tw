@@ -5,9 +5,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Colr</title>
-    <link rel="stylesheet" type="text/css" href="/css/style.css">
-    <script src="/js/filter.js"></script>
-    <script src="/js/insert.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <script src="js/filter.js"></script>
+    <script src="js/insert.js"></script>
+    <script src="js/show.js"></script>
     
 </head>
 
@@ -20,9 +21,9 @@
             <div class="subMenu">
                 <div class="subMenuBtn">Alcoholic</div>
                 <div class="subMenuContent">
-                    <a href="index.html">Caps</a>
-                    <a href="index.html">Corks</a>
-                    <a href="index.html">Labels</a>
+                    <a href="#Caps" onclick="showPart('caps',1)">Caps</a>
+                    <a href="#Corks" onclick="showPart('corks',1)">Corks</a>
+                    <a href="#Labels" onclick="showPart('labels',1)">Labels</a>
                 </div>
             </div>
 
@@ -30,9 +31,9 @@
             <div class="subMenu">
                 <div class="subMenuBtn">Non-alcoholic</div>
                 <div class="subMenuContent">
-                    <a href="index.html">Caps</a>
-                    <a href="index.html">Corks</a>
-                    <a href="index.html">Labels</a>
+                    <a href="#Caps" onclick="showPart('caps',2)">Caps</a>
+                    <a href="#Corks" onclick="showPart('corks',2)">Corks</a>
+                    <a href="#Labels" onclick="showPart('labels',2)">Labels</a>
                 </div>
             </div>
         </div>
@@ -42,9 +43,9 @@
             <div class="subMenu">
                 <div class="subMenuBtn">User</div>
                 <div class="subMenuContent">
-                    <a href="/html/panel.html">Preferences</a>
-                    <a href="/html/admin.html">Administrator Panel</a>
-                    <a href="/html/logReg.html">Login / Register</a>
+                    <a href="html/panel.html">Preferences</a>
+                    <a href="html/admin.html">Administrator Panel</a>
+                    <a href="html/logReg.html">Login / Register</a>
                     <div class="logoutBtn">Logout</div>
                 </div>
             </div>
@@ -84,7 +85,7 @@
             <!-- temporary -->
             <div>
                 <!-- add item BTN -->
-                <input type = "submit" value = "+add item" class ="addItemBtn" name="registerBtn" onclick="showInsert()">
+                <input type = "submit" value = "+add item" class ="addItemBtn" name="addItemBtn" onclick="showInsert()">
             
             </div>
             <!--  -->
@@ -92,24 +93,22 @@
         
         </div>
 
-        <div class = "items">
-                
-<!-- 
-            <?php 
-            $sql = ("select * from items");
-            $results= mysqli_query($conn,$sql);
-            while ($row = mysqli_fetch_assoc($results)) { 
-                ?>
-             <div class = "item">
+        <div id = "items">
+                <script>showAll();</script>
+
+
+            
+            
+           <!-- <div class = "item">
                 
                 <table>
                     <tr>
                         <td>Name</td>
-                        <td><?php echo $row["name"] ?></td>
+                        <td>Golden Brau</td>
                     </tr>
-                    
-                    <img src=img/".$row["img"]." width='50' heigt='50' >
-            <?php }?>
+                    <tr>
+                    <img id = "imgItem" src="test.jpg" alt="BAD" onload="addCss()">
+                </tr>
                     <tr>
                         <td>Type</td>
                         <td>Alcohol</td>
@@ -120,208 +119,20 @@
                     </tr>
                     <tr>
                         <td>Description</td> 
-                        <td>LOOOO OOOOOOOOOOO OOOOOOOOOOOOO OOOOOOOOOOOOOO OOOOOOOO OOOOOOOO OONNGGGG GGGGGGG DESC RRRRRR RRRR  LOOOO OOOOOOOOOOO OOOOOOOOOOOOO OOOOOOOOOOOOOO OOOOOOOO OOOOOOOO OONNGGGG GGGGGGG DESC RRRRRR RRRR RRRRRRR RRRRRRR RRRRRRRI IIIIII IPTION</td>
+                        <td>LOOOOO OOOOOOO OOOOOOO OOOOOOOO OOOOOOOO OOOOOOOOOOOOO OOOOOOOOO OOOONNGGGG GGGGGGG DESC RRR RRRRRRR RRRRRRRRR RRRRRRIIIII IIIP TION</td>
                     </tr>
                     <tr>
                         <td>Country</td>
                         <td>Romania</td>
                     </tr>
                     <tr>
-                        <td>Valoare</td>
+                        <td>Value</td>
                         <td>50</td>
                     </tr>
 
                 </table>
             </div> -->
-
             
-            <div class = "item">
-                
-                <table>
-                    <tr>
-                        <td>Name</td>
-                        <td>Golden Brau</td>
-                    </tr>
-                    <img src="test.jpg" alt="BAD"> 
-                    <tr>
-                        <td>Type</td>
-                        <td>Alcohol</td>
-                    </tr>
-                    <tr>
-                        <td>Category</td>
-                        <td>Label</td>
-                    </tr>
-                    <tr>
-                        <td>Description</td> 
-                        <td>LOOOOO OOOOOOO OOOOOOOOOOOOOOO OOOOOOOO OOOOOOOOOOOOO OOOOOOOOO OOOONNGGGG GGGGGGG DESC RRR RRRRRRR RRRRRRRRR RRRRRRIIIII IIIP TION</td>
-                    </tr>
-                    <tr>
-                        <td>Country</td>
-                        <td>Romania</td>
-                    </tr>
-                    <tr>
-                        <td>Valoare</td>
-                        <td>50</td>
-                    </tr>
-
-                </table>
-            </div>
-            <div class = "item">
-                
-                <table>
-                    <tr>
-                        <td>Name</td>
-                        <td>Golden Brau</td>
-                    </tr>
-                    <img src="test.jpg" alt="BAD"> 
-                    <tr>
-                        <td>Type</td>
-                        <td>Alcohol</td>
-                    </tr>
-                    <tr>
-                        <td>Category</td>
-                        <td>Label</td>
-                    </tr>
-                    <tr>
-                        <td>Description</td>
-                        <td >LOOOOOOOOOOOOO OOOOOOOO OOOOOO OOOOOOOOO OOOOOOO OOOOOOOOOOO OOOOOOON NGGGGGGGGGGG DESCRRRRRRRRRRR RRRRRRRRRRRR RRIIIIIIIIP TION</td>
-                    </tr>
-                    <tr>
-                        <td>Country</td>
-                        <td>Romania</td>
-                    </tr>
-                    <tr>
-                        <td>Valoare</td>
-                        <td>50</td>
-                    </tr>
-
-                </table>
-            </div>
-            <div class = "item">
-                
-                <table>
-                    <tr>
-                        <td>Name</td>
-                        <td>Golden Brau</td>
-                    </tr>
-                    <img src="test.jpg" alt="BAD"> 
-                    <tr>
-                        <td>Type</td>
-                        <td>Alcohol</td>
-                    </tr>
-                    <tr>
-                        <td>Category</td>
-                        <td>Label</td>
-                    </tr>
-                    <tr>
-                        <td>Description</td>
-                        <td>LOOOOOOOOOOOOO OOOOOOOO OOOOOO OOOOOOOOO OOOOOOO OOOOOOOOOOO OOOOOOON NGGGGGGGGGGG DESCRRRRRRRRRRR RRRRRRRRRRRR RRIIIIIIIIP TION</td>
-                    </tr>
-                    <tr>
-                        <td>Country</td>
-                        <td>Romania</td>
-                    </tr>
-                    <tr>
-                        <td>Valoare</td>
-                        <td>50</td>
-                    </tr>
-
-                </table>
-            </div>
-            <div class = "item">
-                
-                <table>
-                    <tr>
-                        <td>Name</td>
-                        <td>Golden Brau</td>
-                    </tr>
-                    <img src="test.jpg" alt="BAD"> 
-                    <tr>
-                        <td>Type</td>
-                        <td>Alcohol</td>
-                    </tr>
-                    <tr>
-                        <td>Category</td>
-                        <td>Label</td>
-                    </tr>
-                    <tr>
-                        <td>Description</td>
-                        <td>LOOOOOOOOOOOOO OOOOOOOO OOOOOO OOOOOOOOO OOOOOOO OOOOOOOOOOO OOOOOOON NGGGGGGGGGGG DESCRRRRRRRRRRR RRRRRRRRRRRR RRIIIIIIIIP TION</td>
-                    </tr>
-                    <tr>
-                        <td>Country</td>
-                        <td>Romania</td>
-                    </tr>
-                    <tr>
-                        <td>Valoare</td>
-                        <td>50</td>
-                    </tr>
-
-                </table>
-            </div>
-            <div class = "item">
-                
-                <table>
-                    <tr>
-                        <td>Name</td>
-                        <td>Golden Brau</td>
-                    </tr>
-                    <img src="test.jpg" alt="BAD"> 
-                    <tr>
-                        <td>Type</td>
-                        <td>Alcohol</td>
-                    </tr>
-                    <tr>
-                        <td>Category</td>
-                        <td>Label</td>
-                    </tr>
-                    <tr>
-                        <td>Description</td>
-                        <td >LOOOOOOOOOOOOO OOOOOOOO OOOOOO OOOOOOOOO OOOOOOO OOOOOOOOOOO OOOOOOON NGGGGGGGGGGG DESCRRRRRRRRRRR RRRRRRRRRRRR RRIIIIIIIIP TION</td>
-                    </tr>
-                    <tr>
-                        <td>Country</td>
-                        <td>Romania</td>
-                    </tr>
-                    <tr>
-                        <td>Valoare</td>
-                        <td>50</td>
-                    </tr>
-
-                </table>
-            </div>
-            <div class = "item">
-                
-                <table>
-                    <tr>
-                        <td>Name</td>
-                        <td>Golden Brau</td>
-                    </tr>
-                    <img src="test.jpg" alt="BAD"> 
-                    <tr>
-                        <td>Type</td>
-                        <td>Alcohol</td>
-                    </tr>
-                    <tr>
-                        <td>Category</td>
-                        <td>Label</td>
-                    </tr>
-                    <tr>
-                        <td>Description</td>
-                        <td>LOOOOOOOOOOOOO OOOOOOOO OOOOOO OOOOOOOOO OOOOOOO OOOOOOOOOOO OOOOOOON NGGGGGGGGGGG DESCRRRRRRRRRRR RRRRRRRRRRRR RRIIIIIIIIP TION</td>
-                    </tr>
-                    <tr>
-                        <td>Country</td>
-                        <td>Romania</td>
-                    </tr>
-                    <tr>
-                        <td>Valoare</td>
-                        <td>50</td>
-                    </tr>
-                    
-
-                </table>
-            </div>
             
 
         </div>
@@ -358,7 +169,7 @@
             <input type="file" id="addImage" name="addImage" accept="image/*">
         </div>
         
-
+        <!-- add item button(submit) -->
         <button type = "button" class="filterBtn" name="filterBtn" onclick="addItem()">Add Item</button>
     
     </div>

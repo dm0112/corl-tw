@@ -201,15 +201,15 @@ body {
     
 }
 /* Items */
-.items {
+#items {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-
+    
 }
 .item table{
     width: 250px;
-    height: auto;
+    /* height: auto; */
 }
 .item table td{
     /* background-color: white; */
@@ -220,18 +220,18 @@ body {
 
 /* resize pentru imagini */
 .item img{ 
-    width: 250px; 
-    height: 300px;
+    max-width: 250px; 
+    max-height: 300px; 
     transition: transform 1.2s;
+    border-radius:20px;
     
 }
-.item img:hover{
+/* .item img:hover{
     border-radius: 20px;
-    transform: scale(1.7);
-    
-    
-    
-}
+    transform: scale(1.7);  
+} */
+
+
 .item {
     /* height: auto; */
     display: flex;
@@ -239,11 +239,17 @@ body {
     /* pentru a tine imaginea sus, comenteaza display si flex de aici */
     padding:30px;
     background-color: #4f790b;
-    margin: 20px;
+    margin: 15px;
     border-radius: 20px;
+    
+    
     
 }
 
+/* #item:empty
+{
+   padding:0;
+} */
 /* add item */
 #addItemBtn{
     /* background-color: #790b4f; */

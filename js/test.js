@@ -1,5 +1,5 @@
 function test() {
-    fetch('http://localhost:4004/php/filter.php?name=item1&description=&type=1')
+    fetch('http://localhost:4004/php/filterAPI.php?name=item1&description=&type=1')
         .then(response => response.json())
         .then(data => console.log(data));
 }
@@ -16,4 +16,4 @@ function test() {
 //     });
 // }
 
-test()
+// test()
