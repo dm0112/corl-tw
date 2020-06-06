@@ -19,7 +19,7 @@ if ((isset($_GET['email']) && $_GET['email']!="") && (isset($_GET['user']) && $_
     $stmtE->execute();
     $resultE = $stmtE->get_result()->num_rows;
     mysqli_stmt_close($stmtE);
-    echo $resultE;
+    //echo $resultE;
 
     $stmtU = mysqli_prepare($conn, "SELECT * FROM users WHERE user = (?)");
     mysqli_stmt_bind_param($stmtU,"s",$user);
@@ -38,7 +38,7 @@ if ((isset($_GET['email']) && $_GET['email']!="") && (isset($_GET['user']) && $_
     if($resultU == 0 && $resultE == 0 && strlen($pass) != 0) {
         // $registersql = $conn->query("insert into users (email, user, password) values('$email', '$user', '$pass')");
         $regSQL= mysqli_prepare($conn, "insert into users (email, user, password) values(?, ?, ?)");
-        echo $pass;
+        //echo $pass;
         mysqli_stmt_bind_param($regSQL,"sss",$email,$user,$pass);
         $regSQL->execute();
         mysqli_stmt_close($regSQL);

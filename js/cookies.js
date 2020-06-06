@@ -1,8 +1,12 @@
-function setCookie(username) {
+function setUserCookie(username) {
     document.cookie = "user=" + username + "; path=/;";
 }
 
 function deleteCookie(key) {
+    document.cookie = key + "=; expires=Thu, 01 Jan 1970 00:00:00 UTC;";
+}
+
+function deleteGlobalCookie(key) {
     document.cookie = key + "=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
 }
 
@@ -15,18 +19,36 @@ function getCookie() {
     return null;
 }
 
-function setUser() {
+function setUserMenu() {
     if (getCookie() != null) {
+        if (getCookie() == "admin") {
+            document.getElementById("adminPanel").style.display = "flex";
+        }
         document.getElementById("notLoggedIn").style.display = "none";
         document.getElementById("loggedIn").style.display = "flex";
         document.getElementById("usernameMenu").innerText = getCookie();
     }
 }
 
+function rememberMe() {
+
+}
 // function setUser(username) {
 //     document.getElementById("usernameMenu").innerText = username;
 // }
 document.addEventListener("DOMContentLoaded", function(event) {
-    setUser();
+    setUserMenu();
     console.log(getCookie());
 });
+
+
+//console.log(document.cookie.split('; ').find(row => row.startsWith('rememberPass')).split('=')[1]);
+if (location.href.split("/").slice(-1) == "logReg.html" && document.cookie.indexOf('rememberUser=') != -1) {
+    document.addEventListener("DOMContentLoaded", function(event) {
+        console.log(document.cookie);
+        document.getElementById("rememberMe").checked = true;
+        document.getElementById("userLog").value = document.cookie.split('; ').find(row => row.startsWith('rememberUser')).split('=')[1];
+        document.getElementById("passLog").value = document.cookie.split('; ').find(row => row.startsWith('rememberPass')).split('=')[1];
+    });
+
+}

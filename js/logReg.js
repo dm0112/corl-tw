@@ -32,8 +32,7 @@ function tryRegister() {
                 alert("Email already in use!");
             else if (data['numRowUsers'] > 0)
                 alert("User already exists!");
-            else {alert("User successfully registered!");
-            console.log(data);}
+            else alert("User successfully registered!");
         });
 }
 
@@ -59,8 +58,24 @@ function tryLogin() {
             else {
                 alert("You have been logged in!");
                 //document.location.href = "index.html";
-                setCookie(username);
-                setUser();
+                setUserCookie(username);
+                setUserMenu();
+
+                var rememberMe = document.getElementById("rememberMe");
+                if (rememberMe.checked == true) {
+                    document.cookie = "rememberUser=" + document.getElementById("userLog").value;
+                    document.cookie = "rememberPass=" + document.getElementById("passLog").value;
+                } else {
+                    console.log(document.cookie.indexOf("rememberUser="));
+                    if (document.cookie.indexOf("rememberUser=") != -1) {
+                        //document.cookie = "rememberUser=; expires=Thu, 01 Jan 1970 00:00:00 UTC;"
+                        //document.cookie = "rememberPass=; expires=Thu, 01 Jan 1970 00:00:00 UTC;"
+                        deleteCookie("rememberUser");
+                        deleteCookie("rememberPass");
+                    }
+                    console.log(document.cookie);
+                }
+                document.location.href = "../index.html";
 
             }
 

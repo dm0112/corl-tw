@@ -8,12 +8,13 @@
     <link rel="stylesheet" type="text/css" href="../css/style.css">
     <script src="../js/cookies.js"></script>
     <script src="../js/logout.js"></script>
+    <script src="../js/show.js"></script>
 </head>
 
 <body>
     <div class="menu">
         <div class="leftMenu">
-            <a href="index.html">Home</a>
+            <a href="../index.html">Home</a>
 
             <div class="subMenu">
                 <div class="subMenuBtn">Alcoholic</div>
@@ -33,24 +34,24 @@
                     <a href="#Labels" onclick="showPart('labels',2)">Labels</a>
                 </div>
             </div>
-
-        
-            <div class="rightMenu">
-                <div class="subMenu" id="notLoggedIn">
-                    <a href="../html/logReg.html">Login / Register</a>
-                </div>
-
-                <div class="subMenu" id="loggedIn">
-                    <div class="subMenuBtn" id="usernameMenu">User</div>
-                    <div class="subMenuContent">
-                        <a href="../html/panel.html">Preferences</a>
-                        <a href="../html/admin.html" id="adminPanel">Administrator Panel</a>
-                        <div class="logoutBtn" onclick="logout()">Logout</div>
-                    </div>
-                </div>
-
-            </div>
         </div>
+
+        <div class="rightMenu">
+            <div class="subMenu" id="notLoggedIn">
+                <a href="../html/logReg.html">Login / Register</a>
+            </div>
+
+            <div class="subMenu" id="loggedIn">
+                <div class="subMenuBtn" id="usernameMenu">User</div>
+                <div class="subMenuContent">
+                    <a href="../html/panel.html">Preferences</a>
+                    <a href="../html/admin.html" id="adminPanel">Administrator Panel</a>
+                    <div class="logoutBtn" onclick="logout()">Logout</div>
+                </div>
+            </div>
+
+        </div>
+    </div>
 
 </body>
 

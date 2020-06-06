@@ -9,13 +9,13 @@ if ((isset($_GET['user']) && $_GET['user']!="") && (isset($_GET['password']) && 
     $pass = $_GET['password'];
     // $checkUsersql = $conn->query("select * from users where user = '$user' and password= '$pass'")->num_rows; //deprecated
     $pass = md5($pass);
-    $stmt = mysqli_prepare($conn, "select * from users where user = ? and password= ?");
+    $stmt = mysqli_prepare($conn, "select * from users where user = ? and password = ?");
     mysqli_stmt_bind_param($stmt,"ss",$user,$pass);
     $stmt->execute();
     $result = $stmt->get_result()->num_rows;
     mysqli_stmt_close($stmt);
-    echo json_encode($result);
-    echo $pass;
+    //echo json_encode($result);
+    //echo $pass;
     $response['numRowUsers'] = $result;
     echo json_encode($response);
 }
