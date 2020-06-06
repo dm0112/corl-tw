@@ -10,7 +10,7 @@ function showRegister() {
 
 function tryRegister() {
     //                      port schimbat aici si mai jos
-    var api = 'http://localhost:4004/php/registerAPI.php?email=';
+    var api = 'http://localhost/php/registerAPI.php?email=';
 
     var email = document.getElementById("emailReg").value;
     var username = document.getElementById("userReg").value;
@@ -38,7 +38,7 @@ function tryRegister() {
 
 function tryLogin() {
     //                      port schimbat aici
-    var api = 'http://localhost:4004/php/loginAPI.php?user=';
+    var api = 'http://localhost/php/loginAPI.php?user=';
 
     var username = document.getElementById("userLog").value;
     var password = document.getElementById("passLog").value;
@@ -58,8 +58,8 @@ function tryLogin() {
             else {
                 alert("You have been logged in!");
                 //document.location.href = "index.html";
-                document.getElementById("notLoggedIn").style.display = "none";
-                document.getElementById("loggedIn").style.display = "flex";
+                setCookie(username);
+                setUser();
 
             }
 

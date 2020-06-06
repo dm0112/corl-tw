@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Forgot password</title>
     <link rel="stylesheet" type="text/css" href="../css/style.css">
+    <script src="../js/cookies.js"></script>
+    <script src="../js/logout.js"></script>
 </head>
 
 <body>
@@ -32,19 +34,23 @@
                     <a href="#">Labels</a>
                 </div>
             </div>
-        
+
         </div>
 
         <div class="rightMenu">
-            <div class="subMenu">
-                <div class="subMenuBtn">User</div>
+            <div class="subMenu" id="notLoggedIn">
+                <a href="../html/logReg.html">Login / Register</a>
+            </div>
+
+            <div class="subMenu" id="loggedIn">
+                <div class="subMenuBtn" id="usernameMenu">User</div>
                 <div class="subMenuContent">
                     <a href="../html/panel.html">Preferences</a>
-                    <a href="../html/admin.html">Administrator Panel</a>
-                    <a href="../html/logReg.html">Login / Register</a>
-                    <div class="logoutBtn">Logout</div>
+                    <a href="../html/admin.html" id="adminPanel">Administrator Panel</a>
+                    <div class="logoutBtn" onclick="logout()">Logout</div>
                 </div>
             </div>
+
         </div>
     </div>
 

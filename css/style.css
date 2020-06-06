@@ -10,8 +10,10 @@ body {
     justify-content: space-between;
     background-color: #790b4f;
     height: 45px;
-    position: sticky;
+    position: fixed;
+    width: 100%;
     top: 0;
+    z-index: 1;
 }
 
 .leftMenu,
@@ -175,83 +177,97 @@ body {
     text-align: center;
 }*/
 
+
 /* search */
 
-.filter, #addItem {
+.filter {
+    margin-top: 45px;
+}
+
+.filter,
+#addItem {
     /* flex pentru rearanjare */
-    display: flex; 
+    display: flex;
     padding-top: 25px;
     /* padding-left: 10px; */
-    flex-wrap: wrap; 
+    flex-wrap: wrap;
     background-color: #7B435B;
-    justify-content: center; 
+    justify-content: center;
 }
+
 .filter input,
-#addItem input{
+#addItem input {
     padding: 5px;
     margin: 5px;
     border: none;
     border-radius: 5px;
 }
-.filterBtn{
+
+.filterBtn {
     width: 100%;
     margin: 5px;
     padding: 5px;
     border: none;
-    
 }
+
+
 /* Items */
+
 #items {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    
 }
-.item table{
+
+.item table {
     width: 250px;
     /* height: auto; */
 }
-.item table td{
+
+.item table td {
     /* background-color: white; */
     color: white;
     opacity: 0.6;
     font-weight: bold;
 }
 
+
 /* resize pentru imagini */
-.item img{ 
-    max-width: 250px; 
-    max-height: 300px; 
+
+.item img {
+    max-width: 250px;
+    max-height: 300px;
     transition: transform 1.2s;
-    border-radius:20px;
-    
+    border-radius: 20px;
 }
+
+
 /* .item img:hover{
     border-radius: 20px;
     transform: scale(1.7);  
 } */
-
 
 .item {
     /* height: auto; */
     display: flex;
     flex-wrap: wrap;
     /* pentru a tine imaginea sus, comenteaza display si flex de aici */
-    padding:30px;
+    padding: 30px;
     background-color: #4f790b;
     margin: 15px;
     border-radius: 20px;
-    
-    
-    
 }
+
 
 /* #item:empty
 {
    padding:0;
 } */
+
+
 /* add item */
-#addItemBtn{
+
+#addItemBtn {
     /* background-color: #790b4f; */
     background-color: transparent;
     /* background: transparent; */
@@ -259,15 +275,15 @@ body {
     color: white;
     opacity: 0.8;
     padding-right: 30px;
-
     border: none;
     outline: none;
     transition: 0.7s;
 }
-#addItemBtn:hover{
+
+#addItemBtn:hover {
     background-color: #420420;
 }
 
-#addItem{
+#addItem {
     display: none;
 }
