@@ -27,6 +27,11 @@ SET time_zone = "+00:00";
 -- Table structure for table `items`
 --
 
+
+DROP TABLE IF EXISTS items;
+DROP TABLE IF EXISTS tokens;
+DROP TABLE IF EXISTS users;
+
 CREATE TABLE `items` (
   `id_user_fq` int(11) NOT NULL COMMENT 'user id (fq) that owns the item',
   `id_uniq` int(11) NOT NULL COMMENT 'item id ',

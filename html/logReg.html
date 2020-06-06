@@ -7,6 +7,8 @@
     <title>Login / Register</title>
     <link rel="stylesheet" type="text/css" href="../css/style.css">
     <script src="../js/logReg.js"></script>
+    <script src="../js/cookies.js"></script>
+    <script src="../js/logout.js"></script>
 </head>
 
 <body>
@@ -33,6 +35,10 @@
                     <a href="#Labels" onclick="showPart('labels',2)">Labels</a>
                 </div>
             </div>
+<<<<<<< HEAD
+=======
+
+>>>>>>> 0164b25290488f00aa9fc261997a66f23a2759b7
         </div>
 
         <div class="rightMenu">
@@ -45,7 +51,7 @@
                 <div class="subMenuContent">
                     <a href="../html/panel.html">Preferences</a>
                     <a href="../html/admin.html" id="adminPanel">Administrator Panel</a>
-                    <div class="logoutBtn">Logout</div>
+                    <div class="logoutBtn" onclick="logout()">Logout</div>
                 </div>
             </div>
 
@@ -65,15 +71,15 @@
 
         <div class="logRegButtons">
             <div class="rememberMe">
-                <input type="checkbox">
-                <label>Remember me?</label>
+                <input type="checkbox" id="rememberMe">
+                <label for="rememberMe">Remember me?</label>
             </div>
             <a href="../html/forgotPass.html ">Forgot password?</a>
         </div>
     </div>
 
-    <div class="logRegFrame" id="regFrame"> 
-        <!-- <form class="logRegFrame" id="regFrame">    part 1 /3 pentru a inlocui cu form--> 
+    <div class="logRegFrame" id="regFrame">
+        <!-- <form class="logRegFrame" id="regFrame">    part 1 /3 pentru a inlocui cu form-->
         <!--
         <label><b>Full Name</b></label>
         <input class="fullName" placeholder="Your name" type="text" required>
@@ -96,7 +102,7 @@
             <!-- <input type = "submit" value = "Register" class="registerBtn" name="registerBtn" onclick="tryRegister()">  part 2 -->
             <!-- button does refresh the page, input doesn't and the url remains with the details + needs styles fixing (css for button doesn't apply to input) -->
         </div>
-    <!-- </form> part 3-->
+        <!-- </form> part 3-->
     </div>
 </body>
 

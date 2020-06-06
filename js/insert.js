@@ -2,11 +2,13 @@ function showInsert() {
     document.getElementById("addItem").style.display = "flex";
     document.getElementById("allBody").style.display = "none";
 }
-function reverseShowInsert(){
+
+function reverseShowInsert() {
     document.getElementById("addItem").style.display = "none";
     document.getElementById("allBody").style.display = "flex";
 }
-function getBase64 (file, callback) {
+
+function getBase64(file, callback) {
 
     const reader = new FileReader();
 
@@ -14,13 +16,14 @@ function getBase64 (file, callback) {
 
     reader.readAsDataURL(file);
 }
-function callback(img){
-        // console.log("Base64 of file is", base64Data); // Here you can have your code which uses Base64 for its operation, // file to Base64 by oneshubh
-            console.log(img);
-    }
+
+function callback(img) {
+    // console.log("Base64 of file is", base64Data); // Here you can have your code which uses Base64 for its operation, // file to Base64 by oneshubh
+    console.log(img);
+}
 
 
-function addItem(){
+function addItem() {
 
     var api = 'http://localhost/php/insertAPI.php?';
 
@@ -35,16 +38,15 @@ function addItem(){
     // ----  
     // getBase64(img, callback);
     //  imaginea nu se bine in db, de continuat aici
-    api = api.concat("name=", name, "&description=", description, "&country=", country,"&type=", type, "&category=", category,"&price=",price,"&img=",img);
+    api = api.concat("name=", name, "&description=", description, "&country=", country, "&type=", type, "&category=", category, "&price=", price, "&img=", img);
     // api = api.concat("&img=",img);
-    console.log("name=", name, "&description=", description, "&country=", country,"&type=", type, "&category=", category,"&price=",price,"&img=",img)
+    console.log("name=", name, "&description=", description, "&country=", country, "&type=", type, "&category=", category, "&price=", price, "&img=", img)
     fetch(api)
-    .then(result => result.text())
-    .then(data => {
-        
-        console.log(data);
-        window.location.replace("index.html");
-        
-    });
-}
+        .then(result => result.text())
+        .then(data => {
 
+            console.log(data);
+            window.location.replace("index.html");
+
+        });
+}
