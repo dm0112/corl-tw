@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-function showAll(){
-=======
 function showAll() {
->>>>>>> 0164b25290488f00aa9fc261997a66f23a2759b7
     var api = 'http://localhost/php/populateAPI.php?whichOnes=all';
     fetch(api)
         .then(result => result.json())
@@ -17,16 +13,9 @@ function showAll() {
         });
 
 }
-<<<<<<< HEAD
 function showPart(cat, type){
     var api = 'http://localhost/php/populateAPI.php?whichOnes=';
     api = api.concat(cat,"&type=",type);
-=======
-
-function showPart(cat, type) {
-    var api = 'http://localhost/php/populateAPI.php?whichOnes=';
-    api = api.concat(cat, "&type=", type);
->>>>>>> 0164b25290488f00aa9fc261997a66f23a2759b7
     fetch(api)
         .then(result => result.json())
         .then(data => {

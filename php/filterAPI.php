@@ -8,7 +8,7 @@ $sql ="SELECT * FROM items";  //interogarea sql
 // mysqli_stmt_bind_param($stmt,'i',$name);
 // mysqli_stmt_execute($stmt);
 // $stmt -> store_result();
-
+$conditions = array();
 $i=0; //pentru a adauga WHERE + and , afisam toate elementele daca nu este niciun filtru
 
 if((isset($_GET['name']) && $_GET['name']!="")){ //construim interogarea, dupa argumentele date
@@ -17,8 +17,11 @@ if((isset($_GET['name']) && $_GET['name']!="")){ //construim interogarea, dupa a
     if($i>0)
         $sql = $sql . ' and ';
     else $sql = $sql . ' WHERE ';
-    $sql  = $sql . " name='" . $name . "'";
+    // $sql  = $sql . " name='" . $name . "'";
+    $sql  = $sql . " name= (?) ";
+    $conditions[$i]=$name;
     $i++;
+    
    
 }
 if((isset($_GET['description']) && $_GET['description']!="")){
@@ -26,8 +29,9 @@ if((isset($_GET['description']) && $_GET['description']!="")){
     if($i>0)
         $sql = $sql . ' and ';
     else $sql = $sql . ' WHERE ';
-    $sql = $sql . "description like '%" . $desc . "%'";
-    
+    // $sql = $sql . "description like '%" . $desc . "%'";
+    $sql = $sql . "description like CONCAT('%', ? , '%')"; 
+    $conditions[$i]=$desc;
     $i++;
     
 }
@@ -36,7 +40,8 @@ if((isset($_GET['country']) && $_GET['country']!="")){
     if($i>0)
         $sql = $sql . ' and ';
     else $sql = $sql . ' WHERE ';
-    $sql = $sql . "country= '" . $country . "'";
+    $sql  = $sql . " country= (?) ";
+    $conditions[$i]=$country;
     $i++;
     
 }
@@ -46,7 +51,8 @@ if((isset($_GET['type']) && $_GET['type']!="")){
     if($i>0)
         $sql = $sql . ' and ';
     else $sql = $sql . ' WHERE ';
-    $sql = $sql . "type= '" . $type . "'";
+    $sql  = $sql . " type= (?) ";
+    $conditions[$i]=$type;
     $i++;
     
 }
@@ -55,7 +61,8 @@ if((isset($_GET['category']) && $_GET['category']!="")){
     if($i>0)
         $sql = $sql . ' and ';
     else $sql = $sql . ' WHERE ';
-    $sql = $sql . "category= '" . $category . "'";
+    $sql  = $sql . " category= (?) ";
+    $conditions[$i]=$category;
     $i++;
     
 }
@@ -64,16 +71,42 @@ if((isset($_GET['price']) && $_GET['price']!="")){
     if($i>0)
         $sql = $sql . ' and ';
     else $sql = $sql . ' WHERE ';
-    $sql = $sql . "price= '" . $price . "'";
+    $sql  = $sql . " price= (?) ";
+    $conditions[$i]=$price;
     $i++;
     
 }
 // echo $sql;
-$result = mysqli_query($conn,$sql)->fetch_all(); //luam rezultatele din interogare
-mysqli_close($conn);
+// $result = mysqli_query($conn,$sql)->fetch_all(); //luam rezultatele din interogare
+// mysqli_close($conn);
 
+$stmt = mysqli_prepare($conn,$sql);
+// echo $sql;
+// echivalentul a $i[0] pana l $i[5]
+//// conditions contine conditiile in ordine iar $i reprezinta cate conditii sunt si ordinea lor
+if($i==6) 
+mysqli_stmt_bind_param($stmt,str_repeat('s',$i),$conditions[$i-6],$conditions[$i-5],$conditions[$i-4],$conditions[$i-3],$conditions[$i-2],$conditions[$i-1]);
+elseif($i==5)
+mysqli_stmt_bind_param($stmt,str_repeat('s',$i),$conditions[$i-5],$conditions[$i-4],$conditions[$i-3],$conditions[$i-2],$conditions[$i-1]);
+elseif($i==4)
+mysqli_stmt_bind_param($stmt,str_repeat('s',$i),$conditions[$i-4],$conditions[$i-3],$conditions[$i-2],$conditions[$i-1]);
+elseif($i==3)
+mysqli_stmt_bind_param($stmt,str_repeat('s',$i),$conditions[$i-3],$conditions[$i-2],$conditions[$i-1]);
+elseif($i==2)
+mysqli_stmt_bind_param($stmt,str_repeat('s',$i),$conditions[$i-2],$conditions[$i-1]);
+elseif($i==1)
+mysqli_stmt_bind_param($stmt,str_repeat('s',$i),$conditions[$i-1]);
+
+
+$stmt->execute();
+$result = $stmt->get_result()->fetch_all();
+mysqli_stmt_close($stmt);
 echo json_encode($result);
-
+// echo json_encode($result);
+//  foreach($result as $item){
+//             // echo $item['name'] . ", " . $item['country'] . ", " . $item['description'] . ", " . $item['id_uniq'] . ", " . $item['id_user_fq'] . "\n";
+//             print_r(array_keys($a));
+//  }
 
 // if(isset($_GET['price']))
 // $price = $_GET['price']; else $price = "0";

@@ -287,3 +287,8 @@ body {
 #addItem {
     display: none;
 }
+
+/* hiding labels */
+label{
+    display: none;
+}

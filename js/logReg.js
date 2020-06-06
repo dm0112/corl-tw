@@ -32,7 +32,8 @@ function tryRegister() {
                 alert("Email already in use!");
             else if (data['numRowUsers'] > 0)
                 alert("User already exists!");
-            else alert("User successfully registered!");
+            else {alert("User successfully registered!");
+            console.log(data);}
         });
 }
 
