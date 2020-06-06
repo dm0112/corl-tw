@@ -22,7 +22,7 @@ function callback(img){
 
 function addItem(){
 
-    var api = 'http://localhost:4004/php/insertAPI.php?';
+    var api = 'http://localhost/php/insertAPI.php?';
 
     var name = document.getElementById("addName").value;
     var description = document.getElementById("addDescription").value;

@@ -1,5 +1,5 @@
 function showAll(){
-    var api = 'http://localhost:4004/php/populateAPI.php?whichOnes=all';
+    var api = 'http://localhost/php/populateAPI.php?whichOnes=all';
     fetch(api)
         .then(result => result.json())
         .then(data => {
@@ -14,7 +14,7 @@ function showAll(){
 
 }
 function showPart(cat, type){
-    var api = 'http://localhost:4004/php/populateAPI.php?whichOnes=';
+    var api = 'http://localhost/php/populateAPI.php?whichOnes=';
     api = api.concat(cat,"&type=",type);
     fetch(api)
         .then(result => result.json())
