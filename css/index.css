@@ -30,6 +30,10 @@
     border: none;
 }
 
+.filter label {
+    color: #f5f5f5;
+}
+
 
 /* Items */
 
