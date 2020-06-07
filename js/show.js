@@ -1,26 +1,102 @@
+function refresh() {
+    location.reload();
+}
+
+function showOnLoad(link, str) {
+    var page;
+    if (link != undefined)
+        var page = link.href.split("/").slice(-1)[0].split("#");
+    else
+        var page = str.split("/").slice(-1)[0].split("#");
+    //var page = document.location.href.split("/").slice(-1)[0].split("#");
+    if (page[1] != undefined) {
+        var type;
+        if (page[1] == "alcoholic")
+            type = 1;
+        else
+            type = 2;
+
+        if (page[2] != undefined) {
+            var cat = page[2];
+            showPart(cat, type);
+        } else {
+            showPart("all", type)
+        }
+    } else {
+        console.log("showall");
+        showAll();
+    }
+}
+console.log(document.location.href.split("/").slice(-1)[0].split("#")[0] == "index.html");
+
+if (document.location.href.split("/").slice(-1)[0].split("#")[0] == "index.html")
+    showOnLoad(undefined, document.location.href);
+// function sendHome(cat, type) {
+//     console.log(cat + " " + type);
+//     if (location.href.split("/").slice(-1) != "index.html") {
+//         window.location.href = "../index.html";
+//         //#" + cat.charAt(0).toUpperCase() + cat.slice(1);
+//     }
+//     //window.addEventListener("load", function() {
+//     if (cat != undefined && type != undefined) {
+
+//         if (cat == "all") {
+//             if (type == 1) {
+//                 document.getElementById("alcoholicSub").click();
+//             } else
+//                 document.getElementById("nonAlcoholicSub").click();
+//         } else {
+//             cat = cat.charAt(0).toUpperCase() + cat.slice(1);
+
+//             if (type == 1) {
+//                 console.log("alcoholic" + cat);
+//                 document.getElementById("alcoholic" + cat).click();
+
+//             } else
+//                 document.getElementById("nonAlcoholic" + cat).click();
+//         }
+//     }
+//     //});
+// }
+
 function showAll() {
-    var api = 'http://localhost/php/populateAPI.php?whichOnes=all';
+
+    //sendHome(undefined, undefined);
+    var api = 'http://localhost/php/populateAPI.php?whichOnes=all&type=';
+    console.log(api);
     fetch(api)
         .then(result => result.json())
         .then(data => {
-
             // console.log(data);
             // data.forEach(element => {
             //     console.log(element);
             //     console.log( " ");
             // });
+            cleanPage();
             populate(data);
         });
 
 }
-function showPart(cat, type){
+
+// console.log(location.href.split("/"));
+// if (location.href.split("/").slice(-1) == "index.html") {
+//     //document.addEventListener("DOMContentLoaded", function(event) {
+//     console.log("show");
+//     showAll();
+//     //    });
+// }
+
+function showPart(cat, type) {
+    //sendHome(cat, type);
+    document.getElementById
     var api = 'http://localhost/php/populateAPI.php?whichOnes=';
-    api = api.concat(cat,"&type=",type);
+    api = api.concat(cat, "&type=", type);
+    console.log(api);
     fetch(api)
         .then(result => result.json())
         .then(data => {
+            console.log(location.href.includes("index.html"));
 
-            console.log(data);
             cleanPage();
             populate(data);
 

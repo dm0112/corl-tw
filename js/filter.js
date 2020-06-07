@@ -1,4 +1,4 @@
-function filter(){
+function filter() {
     var api = 'http://localhost/php/filterAPI.php?';
 
     var name = document.getElementById("name").value;
@@ -12,11 +12,12 @@ function filter(){
     fetch(api)
         .then(result => result.json())
         .then(data => {
-
-            // console.log(data);
-            // functii din show.js (inclus in index.html)
-            cleanPage();
-            populate(data);
+            if (response['responseCode'] == 200) {
+                // console.log(data);
+                // functii din show.js (inclus in index.html)
+                cleanPage();
+                populate(data);
+            } else alert("Unknown error occured!");
 
         });
 }

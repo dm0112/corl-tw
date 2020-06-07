@@ -16,18 +16,21 @@ if ((isset($_GET['user']) && $_GET['user']!="") && (isset($_GET['password']) && 
     mysqli_stmt_close($stmt);
     //echo json_encode($result);
     //echo $pass;
-    $response['numRowUsers'] = $result;
+    if($result > 0)
+        $response['responseCode'] = 200;
+    else
+        $response['responseCode'] = 401;
     echo json_encode($response);
 }
 else {
 
-    $response['numRowUsers'] = -1;
+    $response['responseCode'] = 400;
 
     if($_GET['user']=="")
-        $response['numRowUsers'] = -2;
+        $response['responseCode'] = 411;
 
     if($_GET['password']=="")
-        $response['numRowUsers'] = -3;
+        $response['responseCode'] = 411;
     echo json_encode($response);
 }
 

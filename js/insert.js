@@ -45,8 +45,10 @@ function addItem() {
         .then(result => result.text())
         .then(data => {
 
-            console.log(data);
-            window.location.replace("index.html");
+            if (response['responseCode'] == 200) {
+                console.log(data);
+                window.location.replace("index.html");
+            } else alert("Unknown error occured!");
 
         });
 }

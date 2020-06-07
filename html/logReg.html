@@ -5,7 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login / Register</title>
-    <link rel="stylesheet" type="text/css" href="../css/style.css">
+    <link rel="stylesheet" type="text/css" href="../css/menu.css">
+    <link rel="stylesheet" type="text/css" href="../css/logReg.css">
     <script src="../js/logReg.js"></script>
     <script src="../js/cookies.js"></script>
     <script src="../js/logout.js"></script>
@@ -17,23 +18,22 @@
     <div class="menu">
         <div class="leftMenu">
             <a href="../index.html">Home</a>
-
             <div class="subMenu">
-                <div class="subMenuBtn">Alcoholic</div>
+                <a href="../index.html#alcoholic" class="subMenuBtn" id="alcoholicSub">Alcoholic</a>
                 <div class="subMenuContent">
-                    <a href="#Caps" onclick="showPart('caps',1)">Caps</a>
-                    <a href="#Corks" onclick="showPart('corks',1)">Corks</a>
-                    <a href="#Labels" onclick="showPart('labels',1)">Labels</a>
+                    <a href="../index.html#alcoholic#caps" id="alcoholicCaps">Caps</a>
+                    <a href="../index.html#alcoholic#corks" id="alcoholicCorks">Corks</a>
+                    <a href="../index.html#alcoholic#labels" id="alcoholicLabels">Labels</a>
                 </div>
             </div>
 
 
             <div class="subMenu">
-                <div class="subMenuBtn">Non-alcoholic</div>
+                <a href="../index.html#nonAlcoholic" class="subMenuBtn" id="nonAlcoholicSub">Non-alcoholic</a>
                 <div class="subMenuContent">
-                    <a href="#Caps" onclick="showPart('caps',2)">Caps</a>
-                    <a href="#Corks" onclick="showPart('corks',2)">Corks</a>
-                    <a href="#Labels" onclick="showPart('labels',2)">Labels</a>
+                    <a href="../index.html#nonAlcoholic#caps" id="nonAlcoholicCaps">Caps</a>
+                    <a href="../index.html#nonAlcoholic#corks" id="nonAlcoholicCorks">Corks</a>
+                    <a href="../index.html#nonAlcoholic#labels" id="nonAlcoholicLabels">Labels</a>
                 </div>
             </div>
         </div>

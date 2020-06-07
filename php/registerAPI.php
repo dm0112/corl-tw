@@ -9,10 +9,6 @@ if ((isset($_GET['email']) && $_GET['email']!="") && (isset($_GET['user']) && $_
     $pass = $_GET['password'];
     // $checkMailsql = $conn->query("select * from users where email = '$email'")->num_rows;
     // $checkUsersql = $conn->query("select * from users where user = '$user'")->num_rows;
-    
-    
-
-    
 
     $stmtE = mysqli_prepare($conn, "SELECT * FROM users WHERE email = ?");
     mysqli_stmt_bind_param($stmtE,"s",$email);
@@ -30,36 +26,30 @@ if ((isset($_GET['email']) && $_GET['email']!="") && (isset($_GET['user']) && $_
     $response['numRowUsers'] = $resultU;
 
     
-    // $response['numRowEmail'] = $checkMailsql;
-    // $response['numRowUsers'] = $checkUsersql;
-    $response['passLength'] = strlen($pass);
-    echo json_encode($response);
+    //$response['numRowEmail'] = $checkMailsql;
+    //$response['numRowUsers'] = $checkUsersql;
+    //$response['passLength'] = strlen($pass);
+
     $pass = md5($pass);
-    if($resultU == 0 && $resultE == 0 && strlen($pass) != 0) {
+    if($resultU == 0 && $resultE == 0 /*&& strlen($pass) != 0*/) {
+        $response['responseCode'] = 200;
         // $registersql = $conn->query("insert into users (email, user, password) values('$email', '$user', '$pass')");
         $regSQL= mysqli_prepare($conn, "insert into users (email, user, password) values(?, ?, ?)");
         //echo $pass;
         mysqli_stmt_bind_param($regSQL,"sss",$email,$user,$pass);
         $regSQL->execute();
         mysqli_stmt_close($regSQL);
-
     }
-
+    else
+        $response['responseCode'] = 401;
+    echo json_encode($response);
 }
 else {
 
-    $response['numRowEmail'] = -1;
-    $response['numRowUsers'] = -1;
-    $response['passLength'] = -1;
+    $response['responseCode'] = 400;
 
-    if($_GET['email']=="")
-        $response['numRowEmail'] = -2;
-
-    if($_GET['user']=="")
-        $response['numRowUsers'] = -2;
-
-    if($_GET['password']=="")
-        $response['passLength'] = 0;
+    if($_GET['email']=="" || $_GET['user']=="" || $_GET['password']=="")
+        $response['responeCode'] = 411;
     echo json_encode($response);
 }
 

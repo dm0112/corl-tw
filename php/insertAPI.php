@@ -25,13 +25,18 @@ $stmt = mysqli_prepare($conn, "INSERT INTO items (name, description, country, ty
 mysqli_stmt_bind_param($stmt, 'sssssss',$_GET['name'],$_GET['description'], $_GET['country'], $_GET['type'], $_GET['category'],
 $_GET['price'], $_GET['img']);
 
-mysqli_stmt_execute($stmt);
+if(mysqli_stmt_execute($stmt) == true)
+    $response['responseCode'] = 200;
+else
+    $response['responseCode'] = 400;
 mysqli_stmt_close($stmt);
+echo json_encode($response);
 // echo "ok";
 // echo base64_decode($_GET['img']);
 
 }
 else {
-    // echo "F";
+    $response['responseCode'] = 404;
+    echo json_encode($response);
 }
 ?>

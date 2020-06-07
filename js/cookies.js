@@ -52,3 +52,16 @@ if (location.href.split("/").slice(-1) == "logReg.html" && document.cookie.index
     });
 
 }
+
+function checkAdminPermissions() {
+    console.log(document.cookie);
+    //console.log(document.cookie.split('; ').find(row => row.startsWith('user')).split('=')[1]);
+    if (document.cookie.indexOf('user=') != -1) {
+        if (document.cookie.split('; ').find(row => row.startsWith('user')).split('=')[1] != "admin") {
+            alert("Access denied!");
+            return false;
+        }
+        var pass = prompt("Confirm password:");
+        console.log(pass);
+    }
+}

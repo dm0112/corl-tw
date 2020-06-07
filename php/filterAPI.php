@@ -21,9 +21,9 @@ if((isset($_GET['name']) && $_GET['name']!="")){ //construim interogarea, dupa a
     $sql  = $sql . " name= (?) ";
     $conditions[$i]=$name;
     $i++;
-    
-   
 }
+else $response['responseCode'] = 404;
+
 if((isset($_GET['description']) && $_GET['description']!="")){
     $desc = $_GET['description'];
     if($i>0)
@@ -35,6 +35,8 @@ if((isset($_GET['description']) && $_GET['description']!="")){
     $i++;
     
 }
+else $response['responseCode'] = 404;
+
 if((isset($_GET['country']) && $_GET['country']!="")){
     $country = $_GET['country'];
     if($i>0)
@@ -45,6 +47,7 @@ if((isset($_GET['country']) && $_GET['country']!="")){
     $i++;
     
 }
+else $response['responseCode'] = 404;
 
 if((isset($_GET['type']) && $_GET['type']!="")){
     $type = $_GET['type'];
@@ -56,6 +59,8 @@ if((isset($_GET['type']) && $_GET['type']!="")){
     $i++;
     
 }
+else $response['responseCode'] = 404;
+
 if((isset($_GET['category']) && $_GET['category']!="")){
     $category = $_GET['category'];
     if($i>0)
@@ -66,6 +71,8 @@ if((isset($_GET['category']) && $_GET['category']!="")){
     $i++;
     
 }
+else $response['responseCode'] = 404;
+
 if((isset($_GET['price']) && $_GET['price']!="")){
     $price = $_GET['price'];
     if($i>0)
@@ -76,6 +83,7 @@ if((isset($_GET['price']) && $_GET['price']!="")){
     $i++;
     
 }
+else $response['responseCode'] = 404;
 // echo $sql;
 // $result = mysqli_query($conn,$sql)->fetch_all(); //luam rezultatele din interogare
 // mysqli_close($conn);
@@ -98,10 +106,12 @@ elseif($i==1)
 mysqli_stmt_bind_param($stmt,str_repeat('s',$i),$conditions[$i-1]);
 
 
-$stmt->execute();
-$result = $stmt->get_result()->fetch_all();
+if($stmt->execute() == true)
+    $response['responseCode'] = 200;
+else $response['responseCode'] = 400;
+$response = $stmt->get_result()->fetch_all();
 mysqli_stmt_close($stmt);
-echo json_encode($result);
+echo json_encode($response);
 // echo json_encode($result);
 //  foreach($result as $item){
 //             // echo $item['name'] . ", " . $item['country'] . ", " . $item['description'] . ", " . $item['id_uniq'] . ", " . $item['id_user_fq'] . "\n";

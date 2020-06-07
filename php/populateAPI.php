@@ -15,26 +15,34 @@ if(isset($_GET['whichOnes'])){
     if($whichOnes != ""){
 
         if($whichOnes == "all"){
-        $stmt = mysqli_prepare($conn, "SELECT * FROM items");
-        $stmt->execute();
-        $result = $stmt->get_result()->fetch_all();
-        mysqli_stmt_close($stmt);
-        
-        echo json_encode($result);
-        
-        // foreach($result as $item){
-        //     echo $item['name'] . ", " . $item['country'] . ", " . $item['description'] . ", " . $item['id_uniq'] . ", " . $item['id_user_fq'] . "\n";
-        //     // echo $item['name'];
+            if($type!="")
+            {
+                $stmt = mysqli_prepare($conn, "SELECT * FROM items WHERE type = (?)");
+                mysqli_stmt_bind_param($stmt,"d",$type);
+            }
+            else
+            {
+            $stmt = mysqli_prepare($conn, "SELECT * FROM items");
+            }
+            $stmt->execute();
+            $response = $stmt->get_result()->fetch_all();
+            mysqli_stmt_close($stmt);
             
-        // }
+            echo json_encode($response);
+            
+            // foreach($result as $item){
+            //     echo $item['name'] . ", " . $item['country'] . ", " . $item['description'] . ", " . $item['id_uniq'] . ", " . $item['id_user_fq'] . "\n";
+            //     // echo $item['name'];
+                
+            // }
         }
         elseif ($type=="") {
         $stmt = mysqli_prepare($conn, "SELECT * FROM items WHERE category = (?)");
         mysqli_stmt_bind_param($stmt,"s",$whichOnes);
         $stmt->execute();
-        $result = $stmt->get_result()->fetch_all();
+        $response = $stmt->get_result()->fetch_all();
         mysqli_stmt_close($stmt);
-        echo json_encode($result);
+        echo json_encode($response);
         // foreach($result as $item){
         //     echo $item['name'] . ", " . $item['country'] . ", " . $item['description'] . ", " . $item['id_uniq'] . ", " . $item['id_user_fq'] . "\n";
         //     // echo $item['name'];
@@ -45,9 +53,9 @@ if(isset($_GET['whichOnes'])){
         $stmt = mysqli_prepare($conn, "SELECT * FROM items WHERE category = (?) and type = (?)");
         mysqli_stmt_bind_param($stmt,"ss",$whichOnes,$type);
         $stmt->execute();
-        $result = $stmt->get_result()->fetch_all();
+        $response = $stmt->get_result()->fetch_all();
         mysqli_stmt_close($stmt);
-        echo json_encode($result);
+        echo json_encode($response);
         }
 
 

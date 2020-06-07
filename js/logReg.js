@@ -22,16 +22,14 @@ function tryRegister() {
         .then(response => response.json())
         .then(data => {
             console.log(data);
-            if (data['numRowEmail'] == -2)
-                alert("Email cannot be empty!");
-            else if (data['numRowUsers'] == -2)
-                alert("Username cannot be empty!");
-            else if (data['passLength'] == 0)
-                alert("Password cannot be empty!");
+            if (data['responseCode'] == 411)
+                alert("Email, username or password cannot be empty!");
             else if (data['numRowEmail'] > 0)
                 alert("Email already in use!");
             else if (data['numRowUsers'] > 0)
                 alert("User already exists!");
+            else if (data['responseCode'] == 400)
+                alert("Unknown error occured!");
             else alert("User successfully registered!");
         });
 }
@@ -49,12 +47,12 @@ function tryLogin() {
         .then(response => response.json())
         .then(data => {
             console.log(data);
-            if (data['numRowUsers'] == -2)
-                alert("Username cannot be empty!");
-            else if (data['numRowUsers'] == -3)
-                alert("Password cannot be empty!");
-            else if (data['numRowUsers'] == 0)
+            if (data['responseCode'] == 411)
+                alert("Username or password cannot be empty!");
+            else if (data['responseCode'] == 401)
                 alert("Invalid credentials!");
+            else if (data['responseCode'] == 400)
+                alert("Unknown error occured!");
             else {
                 alert("You have been logged in!");
                 //document.location.href = "index.html";

@@ -1,0 +1,76 @@
+/* logReg page */
+
+.logRegFrame {
+    display: flex;
+    flex-direction: column;
+    width: 500px;
+    border-color: rgb(31, 28, 28);
+    border-style: solid;
+    margin: auto;
+    margin-top: 100px;
+    margin-bottom: 100px;
+}
+
+.logRegButtons {
+    display: flex;
+    justify-content: space-between;
+}
+
+.logRegButtons button {
+    margin: 20px 20px;
+    padding: 15px 15%;
+    overflow: hidden;
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+    color: white;
+    background-color: #790b4f;
+}
+
+.logRegFrame input,
+.logRegFrame label,
+.logRegFrame a {
+    margin: 10px 20px;
+}
+
+.logRegFrame label {
+    font-size: 26px;
+}
+
+.logRegFrame input {
+    padding: 5px 10px;
+    font-size: 18px;
+}
+
+.logRegFrame a {
+    margin-left: auto;
+    margin-right: 20px;
+}
+
+.logRegButtons *:hover {
+    opacity: 0.8;
+}
+
+.logRegFrame input[type="checkbox"] {
+    margin-right: 0px;
+}
+
+.rememberMe label {
+    margin-left: 0;
+    font-size: 16px;
+}
+
+#regFrame {
+    display: none;
+}
+
+.logRegButtons .forgotBtn {
+    width: 100%;
+}
+
+
+/*.logRegFrame input[type="checkbox"] {
+    padding: 0;
+    vertical-align: middle;
+    text-align: center;
+}*/
