@@ -1,0 +1,58 @@
+.change {
+    display: flex;
+    flex-direction: column;
+    margin: 45px 0px;
+}
+
+.line {
+    border-style: solid;
+    border-color: rgb(31, 28, 28);
+    width: 100%;
+}
+
+.change input,
+.change label {
+    margin: 10px 0px;
+}
+
+.change label {
+    font-size: 26px;
+}
+
+.change input {
+    padding: 5px 10px;
+    font-size: 18px;
+}
+
+#line {}
+
+.change h1,
+.change input,
+.change label,
+.change button {
+    margin-left: 40px;
+}
+
+.change #line {
+    margin: 0px 0px 10px 0px;
+    border: dashed rgb(207, 207, 207);
+}
+
+.change button {
+    padding: 15px;
+    width: 300px;
+    margin-top: 15px;
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+    color: white;
+    background-color: #790b4f;
+}
+
+.change input {
+    width: 500px;
+}
+
+.change button:hover {
+    opacity: 0.8;
+}
