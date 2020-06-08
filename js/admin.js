@@ -81,7 +81,7 @@ function populatePanel(users) {
         var row =
             '<tr><td>' + user[0] + '</td><td>' + user[1] +
             '</td><td>' + user[2] + '</td><td>' + user[3] +
-            '</td><td><img src="../delete.png" class="deleteIcon" id="deleteIcon' + k.toString() + '" onclick="deleteUser(this.parentNode)"></td></tr>';
+            '</td><td><img src="../delete.png" alt="del" class="deleteIcon" id="deleteIcon' + k.toString() + '" onclick="deleteUser(this.parentNode)"></td></tr>';
         document.getElementById("userTable").insertAdjacentHTML('beforeend', row);
 
     })
