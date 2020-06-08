@@ -105,13 +105,18 @@ mysqli_stmt_bind_param($stmt,str_repeat('s',$i),$conditions[$i-2],$conditions[$i
 elseif($i==1)
 mysqli_stmt_bind_param($stmt,str_repeat('s',$i),$conditions[$i-1]);
 
+$execResult = $stmt->execute();
 
-if($stmt->execute() == true)
+$response['results'] = $stmt->get_result()->fetch_all();
+mysqli_stmt_close($stmt);
+if($execResult == true)
     $response['responseCode'] = 200;
 else $response['responseCode'] = 400;
-$response = $stmt->get_result()->fetch_all();
-mysqli_stmt_close($stmt);
+
 echo json_encode($response);
+// foreach($response as $item){
+//     echo $item['responseCode'] . " " . $item['results'];
+// }
 // echo json_encode($result);
 //  foreach($result as $item){
 //             // echo $item['name'] . ", " . $item['country'] . ", " . $item['description'] . ", " . $item['id_uniq'] . ", " . $item['id_user_fq'] . "\n";

@@ -12,11 +12,11 @@ function filter() {
     fetch(api)
         .then(result => result.json())
         .then(data => {
-            if (response['responseCode'] == 200) {
+            if (data['responseCode'] == 200) {
                 // console.log(data);
                 // functii din show.js (inclus in index.html)
                 cleanPage();
-                populate(data);
+                populate(data['results']);
             } else alert("Unknown error occured!");
 
         });
