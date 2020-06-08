@@ -44,7 +44,7 @@
             <div class="subMenu" id="loggedIn">
                 <div class="subMenuBtn" id="usernameMenu">User</div>
                 <div class="subMenuContent">
-                    <a href="../html/panel.html">Preferences</a>
+                    <a href="../html/panel.html">User Panel</a>
                     <a href="../html/admin.html" id="adminPanel">Administrator Panel</a>
                     <div class="logoutBtn" onclick="logout()">Logout</div>
                 </div>
@@ -57,6 +57,21 @@
         <label for="confirmPassInput"><b>Confirm password:</b></label>
         <input type="password" placeholder="Your password" id="confirmPassInput">
         <button type="button" class="confirmButton" onclick="confirmPassword()">Confirm</button>
+    </div>
+
+
+
+    <div class="userTable">
+        <h1 id="pageTitle">Administrator Panel</h1>
+        <table id="userTable">
+            <tr>
+                <th>id</th>
+                <th>email</th>
+                <th>user</th>
+                <th>password</th>
+                <th>delete</th>
+            </tr>
+        </table>
     </div>
 
 </body>
