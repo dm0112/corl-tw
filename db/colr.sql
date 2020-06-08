@@ -1,13 +1,14 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.2
+-- version 5.0.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 04, 2020 at 07:22 PM
+-- Generation Time: Jun 08, 2020 at 04:15 PM
 -- Server version: 10.4.11-MariaDB
--- PHP Version: 7.4.5
+-- PHP Version: 7.4.3
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -27,13 +28,7 @@ SET time_zone = "+00:00";
 -- Table structure for table `items`
 --
 
-
-DROP TABLE IF EXISTS items;
-DROP TABLE IF EXISTS tokens;
-DROP TABLE IF EXISTS users;
-
 CREATE TABLE `items` (
-  `id_user_fq` int(11) NOT NULL COMMENT 'user id (fq) that owns the item',
   `id_uniq` int(11) NOT NULL COMMENT 'item id ',
   `type` int(4) NOT NULL COMMENT 'alcohol 1, non alc 2',
   `category` varchar(30) NOT NULL COMMENT 'corks/ caps/ labels',
@@ -48,31 +43,45 @@ CREATE TABLE `items` (
 -- Dumping data for table `items`
 --
 
-INSERT INTO `items` (`id_user_fq`, `id_uniq`, `type`, `category`, `description`, `country`, `img`, `name`, `price`) VALUES
-(2, 1, 1, 'corks', 'frumos tare pe la iasi', 'romania', '', 'item1', 0),
-(2, 2, 2, 'caps', 'prost la lume in cluj iasi', 'bulgaria', '', 'suc', 0),
-(0, 3, 1, 'dasdsa', 'dsadsadsa', 'dsad', '[object File]', 'dsasda', 23),
-(0, 4, 1, 'dasdsa', 'dsadsadsa', 'dsad', '[object File]', 'dsasda', 23),
-(0, 5, 1, 'dasdsa', 'dsadsadsa', 'dsad', '[object File]', 'dsasda', 23),
-(0, 6, 1, 'dasdsa', 'dsadsadsa', 'dsad', '[object File]', 'dsasda', 23),
-(0, 7, 1, 'cass', 'das', 'dsadas', '[object File]', 'dasd', 22),
-(0, 8, 1, 'cass', 'das', 'dsadas', '[object File]', 'dasd', 22),
-(0, 9, 0, 'das', 'dasd', 'dasdas', '[object File]', 'das', 0),
-(0, 10, 1, 'dasdas', 'dasdsa', '1dsadsa', '[object File]', 'ddasdsadas', 0),
-(0, 11, 1, 'dasdas', 'dasdsa', '1dsadsa', '[object File]', 'ddasdsadas', 0),
-(0, 12, 1, 'dasdas', 'dasdsa', '1dsadsa', '[object File]', 'ddasdsadas', 0),
-(0, 13, 1, 'dasdas', 'dasdsa', '1dsadsa', '[object File]', 'ddasdsadas', 0);
+INSERT INTO `items` (`id_uniq`, `type`, `category`, `description`, `country`, `img`, `name`, `price`) VALUES
+(3, 1, 'dasdsa', 'dsadsadsa', 'dsad', '[object File]', 'dsasda', 23),
+(4, 1, 'dasdsa', 'dsadsadsa', 'dsad', '[object File]', 'dsasda', 23),
+(5, 1, 'dasdsa', 'dsadsadsa', 'dsad', '[object File]', 'dsasda', 23),
+(6, 1, 'dasdsa', 'dsadsadsa', 'dsad', '[object File]', 'dsasda', 23),
+(7, 1, 'cass', 'das', 'dsadas', '[object File]', 'dasd', 22),
+(9, 0, 'das', 'dasd', 'dasdas', '[object File]', 'das', 0),
+(10, 1, 'dasdas', 'dasdsa', '1dsadsa', '[object File]', 'ddasdsadas', 0),
+(11, 1, 'dasdas', 'dasdsa', '1dsadsa', '[object File]', 'ddasdsadas', 0),
+(12, 1, 'dasdas', 'dasdsa', '1dsadsa', '[object File]', 'ddasdsadas', 0),
+(13, 1, 'dasdas', 'dasdsa', '1dsadsa', '[object File]', 'ddasdsadas', 0);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tokens`
+-- Table structure for table `itemsowned`
 --
 
-CREATE TABLE `tokens` (
-  `id_user` int(8) NOT NULL,
-  `token` varchar(70) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+CREATE TABLE `itemsowned` (
+  `username` varchar(60) NOT NULL,
+  `id_item` int(8) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `itemsowned`
+--
+
+INSERT INTO `itemsowned` (`username`, `id_item`) VALUES
+('ffs', 2),
+('ffs', 2),
+('ffs', 2),
+('ffs', 3),
+('ffs', 4),
+('ffss', 4),
+('test', 1),
+('test', 3),
+('test', 5),
+('test', 6),
+('test', 4);
 
 -- --------------------------------------------------------
 
@@ -84,7 +93,7 @@ CREATE TABLE `users` (
   `id` int(8) NOT NULL,
   `email` varchar(40) NOT NULL,
   `user` varchar(30) NOT NULL,
-  `password` varchar(30) NOT NULL
+  `password` varchar(80) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -92,13 +101,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `email`, `user`, `password`) VALUES
-(26, 'dsadsakjhd@gmail.com', 'jkdasjkisda', 'kjhndasjkhasd'),
-(27, 'obraznicul38@gmail.com', 'SlopestylePro', 'fmmfmmfmm'),
-(28, 'kihdsakhjsad', 'jkdsahkjdsa', 'kjdsahdsa'),
-(29, 'dasdsasad@gmas.com', 'dsahdsa', 'dsahjdsajk'),
-(30, 'testagain@ro.com', 'kodash', 'kudosmia'),
-(31, 'dsadsa', 'kjhdsa', 'kjdsakj'),
-(32, 'dsadsasda', 'dsadsa', 'dsadsa');
+(34, 'test@test.com', 'test', '098f6bcd4621d373cade4e832627b4f6');
 
 --
 -- Indexes for dumped tables
@@ -130,7 +133,7 @@ ALTER TABLE `items`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
+  MODIFY `id` int(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

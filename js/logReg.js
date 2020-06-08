@@ -35,7 +35,7 @@ function tryRegister() {
 }
 
 function tryLogin() {
-    //                      port schimbat aici
+
     var api = 'http://localhost/php/loginAPI.php?user=';
 
     var username = document.getElementById("userLog").value;

@@ -26,10 +26,10 @@ else {
 
     $response['responseCode'] = 400;
 
-    if($_GET['user']=="")
+    if($_GET['user']=="")  // redundant din conditia if-ului de mai sus
         $response['responseCode'] = 411;
 
-    if($_GET['password']=="")
+    if($_GET['password']=="") // redundant din conditia if-ului de mai sus
         $response['responseCode'] = 411;
     echo json_encode($response);
 }

@@ -2,6 +2,46 @@ function refresh() {
     location.reload();
 }
 
+
+function showMyItems(user){ //apel showMyItems(getCookie())
+    var api = 'http://localhost/php/populateAPI.php?whichOnes=owned&user='.concat(user);
+    console.log(api);
+    fetch(api)
+        .then(result => result.json())
+        .then(data => {
+            // console.log(data);
+            // data.forEach(element => {
+            //     console.log(element);
+            //     console.log( " ");
+            // });
+            if(data['responseCode'] == 200){
+            // console.log(data['responseCode']);
+            cleanPage();
+            populate(data['results']);
+            }
+            else alert("Unknown error occured!");
+        });
+}
+function getAllUsers(user){ // apel getAllUsers(getCookie())
+    var api = 'http://localhost/php/populateAPI.php?whichOnes=users&user='.concat(user);
+    console.log(api);
+    fetch(api)
+        .then(result => result.json())
+        .then(data => {
+            // console.log(data);
+            // data.forEach(element => {
+            //     console.log(element);
+            //     console.log( " ");
+            // });
+            if(data['responseCode'] == 200){
+            // console.log(data['responseCode']);
+            console.log(data['results']); // de facut functie pentru afisarea userilor
+            }
+            else alert("Unknown error occured!");
+        });
+}
+
+
 function showOnLoad(link, str) {
     var page;
     if (link != undefined)
@@ -72,8 +112,12 @@ function showAll() {
             //     console.log(element);
             //     console.log( " ");
             // });
+            if(data['responseCode'] == 200){
+            // console.log(data['responseCode']);
             cleanPage();
-            populate(data);
+            populate(data['results']);
+            }
+            else alert("Unknown error occured!");
         });
 
 }
@@ -96,9 +140,12 @@ function showPart(cat, type) {
         .then(result => result.json())
         .then(data => {
             console.log(location.href.includes("index.html"));
-
+            // console.log(data['responseCode']);
+            if(data['responseCode'] == 200){
             cleanPage();
-            populate(data);
+            populate(data['results']);
+            }
+            else alert("Unknown error occured!");
 
 
         });
@@ -107,49 +154,65 @@ function showPart(cat, type) {
 
 function populate(items) {
 
+
+    
     items.forEach(el => {
         // console.log(el);
 
 
-
-
-        var element =
+        // elementul este despartit in 3 bucati pentru a verifica daca exista user logat pentru butonul de addToMyList
+        
+        var elementPart1 =
             '                <div class = "item">' +
+            // '                <button type="button" class="addToMyList" name="addToMyList" onclick="addToMyList(item, idUser)">+</button>' +
             '                <table>' +
             '                    <tr>' +
             '                        <td>Name</td>' +
-            '                        <td>' + el[7] + '</td>' +
+            '                        <td>' + el[6] + '</td>' +
             '                    </tr>' +
-            '                    <tr><img id = "imgItem" src="' + el[6] + '" alt=""> ' +
+            // '                    <tr><img id = "imgItem" src="' + el[5] + '" alt=""> ' + //imaginea care 2x erori
+            '                    <tr><img id = "imgItem" src="test.jpg" alt=""> ' + //imaginea care 2x erori
+
             '                      </tr>' +
             '                    <tr>' +
             '                        <td>Type</td>' +
-            '                        <td>' + type(el[2]) + '</td>' +
+            '                        <td>' + type(el[1]) + '</td>' +
             '                    </tr>' +
             '                    <tr>' +
             '                        <td>Category</td>' +
-            '                        <td>' + el[3] + '</td>' +
+            '                        <td>' + el[2] + '</td>' +
             '                    </tr>' +
             '                    <tr>' +
             '                        <td>Description</td> ' +
-            '                        <td>' + el[4] + '</td>' +
+            '                        <td>' + el[3] + '</td>' +
             '                    </tr>' +
             '                    <tr>' +
             '                        <td>Country</td>' +
-            '                        <td>' + el[5] + '</td>' +
+            '                        <td>' + el[4] + '</td>' +
             '                    </tr>' +
             '                    <tr>' +
             '                        <td>Value</td>' +
-            '                        <td>' + el[8] + '</td>' +
-            '                    </tr>' +
+            '                        <td>' + el[7] + '</td>' +
+            '                    </tr>';
+        
+        if(getCookie()) var elementPart2 =
+            '                    <tr>' +
+            '                        <td></td>' +
+            '                        <td></td>' +
+            '                        <td><button type="button" class="addToMyList" name="addToMyList" onclick="addToMyList('+ el[0]+', ' + "'" + getCookie()+ "'" +')">➕</button></td>' +
+            '                    </tr>';
+            else var elementPart2 = "";
+        var  elementPart3 = 
+
             '                </table>' +
+            
             '                </div>';
-
-
+        var element = elementPart1.concat(elementPart2).concat(elementPart3);
         document.getElementById("items").insertAdjacentHTML('beforeend', element);
 
     });
-
+    
+   
 }
 
 function type(a) {

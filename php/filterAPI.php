@@ -22,7 +22,7 @@ if((isset($_GET['name']) && $_GET['name']!="")){ //construim interogarea, dupa a
     $conditions[$i]=$name;
     $i++;
 }
-else $response['responseCode'] = 404;
+// else $response['responseCode'] = 404;
 
 if((isset($_GET['description']) && $_GET['description']!="")){
     $desc = $_GET['description'];
@@ -35,7 +35,7 @@ if((isset($_GET['description']) && $_GET['description']!="")){
     $i++;
     
 }
-else $response['responseCode'] = 404;
+// else $response['responseCode'] = 404;
 
 if((isset($_GET['country']) && $_GET['country']!="")){
     $country = $_GET['country'];
@@ -47,7 +47,7 @@ if((isset($_GET['country']) && $_GET['country']!="")){
     $i++;
     
 }
-else $response['responseCode'] = 404;
+// else $response['responseCode'] = 404;
 
 if((isset($_GET['type']) && $_GET['type']!="")){
     $type = $_GET['type'];
@@ -59,7 +59,7 @@ if((isset($_GET['type']) && $_GET['type']!="")){
     $i++;
     
 }
-else $response['responseCode'] = 404;
+// else $response['responseCode'] = 404;
 
 if((isset($_GET['category']) && $_GET['category']!="")){
     $category = $_GET['category'];
@@ -71,7 +71,7 @@ if((isset($_GET['category']) && $_GET['category']!="")){
     $i++;
     
 }
-else $response['responseCode'] = 404;
+// else $response['responseCode'] = 404;
 
 if((isset($_GET['price']) && $_GET['price']!="")){
     $price = $_GET['price'];
@@ -83,7 +83,9 @@ if((isset($_GET['price']) && $_GET['price']!="")){
     $i++;
     
 }
-else $response['responseCode'] = 404;
+// else $response['responseCode'] = 404;
+
+
 // echo $sql;
 // $result = mysqli_query($conn,$sql)->fetch_all(); //luam rezultatele din interogare
 // mysqli_close($conn);

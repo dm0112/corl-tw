@@ -13,6 +13,7 @@
     <script src="js/show.js"></script>
     <script src="js/logout.js"></script>
     <script src="js/cookies.js"></script>
+    <script src="js/operations.js"></script>
 
 </head>
 
@@ -50,7 +51,7 @@
                 <div class="subMenuBtn" id="usernameMenu">User</div>
                 <div class="subMenuContent">
                     <a href="html/panel.html">Preferences</a>
-                    <a href="html/admin.html" id="adminPanel">Administrator Panel</a>
+                    <a href="html/admin.html" id="adminPanel" onclick="checkAdminPermissions()">Administrator Panel</a>
                     <div class="logoutBtn" onclick="logout()">Logout</div>
                 </div>
             </div>
@@ -61,8 +62,92 @@
 
     <!-- <div style="height: 2500px;"> -->
     <div id="allBody">
+        
+        <div id="addItem">
+            <!-- <div>
+                <label for="addType">Type</label>
+                <input type="text" id="addType" name="addType" placeholder="  1 Alcoholic/ 2 Non-al...">
+            </div> -->
 
-        <div class="filter">
+            <div class = "radioButtons">
+                <!-- <label for="type">Type</label>
+                <input type="text" id="type" name="type" placeholder="  1 Alcoholic/ 2 Non-al..."> -->
+                
+                <input type="radio" id="addType1" name="addType" value="1">
+                <label for="addType1">Alcoholic</label>
+
+                <input type="radio" id="addType2" name="addType" value="2">
+                <label for="addType2">Non-Alcoholic</label>
+
+            </div>
+
+            <div>
+                <label for="addName">Name</label>
+                <input type="text" id="addName" name="addName" placeholder="  Name...">
+            </div>
+            <div>
+                <label for="addDescription">Description</label>
+                <input type="text" id="addDescription" name="addDescription" placeholder="  Description...">
+            </div>
+            <div>
+                <label for="addCountry">Country</label>
+                <input type="text" id="addCountry" name="addCountry" placeholder="  Country...">
+            </div>
+            
+            <!-- <div>
+                <label for="addCategory">Category</label>
+                <input type="text" id="addCategory" name="addCategory" placeholder="  Caps/ Corks/ Labels...">
+            </div> -->
+            <div class = "radioButtons">
+                <!-- <label for="category">Category</label>
+                <input type="text" id="category" name="category" placeholder="  Caps/ Corks/ Labels..."> -->
+
+                <input type="radio" id="addCategory1" name="addCategory" value="Caps">
+                <label for="addCategory1">Caps</label>
+
+                <input type="radio" id="addCategory2" name="addCategory" value="Corks">
+                <label for="addCategory2">Corks</label>
+
+                <input type="radio" id="addCategory3" name="addCategory" value="Labels">
+                <label for="addCategory3">Labels</label>
+
+
+            </div>
+
+
+            <div>
+                <label for="addPrice">Price</label>
+                <input type="text" id="addPrice" name="addPrice" placeholder="  Price...">
+            </div>
+            <div>
+                <!-- <label for="addImage">Image</label> -->
+                <input type="file" id="addImage" name="addImage" accept="image/*">
+            </div>
+
+            <div>
+                <!-- add item BTN -->
+                <input type="submit" value="backToSearch" class="addItemBtn" name="backToSearch" onclick="reverseShowInsert()">
+
+            </div>
+
+            <!-- add item button(submit) -->
+            <button type="button" class="filterBtn" name="filterBtn" onclick="addItem()">Add Item</button>
+
+        </div>
+
+        <div id="filter">
+
+            <div class = "radioButtons">
+                <!-- <label for="type">Type</label>
+                <input type="text" id="type" name="type" placeholder="  1 Alcoholic/ 2 Non-al..."> -->
+                
+                <input type="radio" id="type1" name="type" value="1">
+                <label for="type1">Alcoholic</label>
+
+                <input type="radio" id="type2" name="type" value="2">
+                <label for="type2">Non-Alcoholic</label>
+
+            </div>
             <div>
                 <label for="name">Name</label>
                 <input type="text" id="name" name="name" placeholder="  Name...">
@@ -75,13 +160,21 @@
                 <label for="country">Country</label>
                 <input type="text" id="country" name="country" placeholder="  Country...">
             </div>
-            <div>
-                <label for="type">Type</label>
-                <input type="text" id="type" name="type" placeholder="  1 Alcoholic/ 2 Non-al...">
-            </div>
-            <div>
-                <label for="category">Category</label>
-                <input type="text" id="category" name="category" placeholder="  Caps/ Corks/ Labels...">
+            
+            <div class = "radioButtons">
+                <!-- <label for="category">Category</label>
+                <input type="text" id="category" name="category" placeholder="  Caps/ Corks/ Labels..."> -->
+
+                <input type="radio" id="category1" name="category" value="Caps">
+                <label for="category1">Caps</label>
+
+                <input type="radio" id="category2" name="category" value="Corks">
+                <label for="category2">Corks</label>
+
+                <input type="radio" id="category3" name="category" value="Labels">
+                <label for="category3">Labels</label>
+
+
             </div>
             <div>
                 <label for="price">Price</label>
@@ -95,6 +188,8 @@
 
             </div>
             <!--  -->
+            
+
             <button type="button" class="filterBtn" name="filterBtn" onclick="filter()">Search</button>
 
         </div>
@@ -147,41 +242,7 @@
 
 
         </div>
-        <div id="addItem">
-            <div>
-                <label for="addName">Name</label>
-                <input type="text" id="addName" name="addName" placeholder="  Name...">
-            </div>
-            <div>
-                <label for="addDescription">Description</label>
-                <input type="text" id="addDescription" name="addDescription" placeholder="  Description...">
-            </div>
-            <div>
-                <label for="addCountry">Country</label>
-                <input type="text" id="addCountry" name="addCountry" placeholder="  Country...">
-            </div>
-            <div>
-                <label for="addType">Type</label>
-                <input type="text" id="addType" name="addType" placeholder="  1 Alcoholic/ 2 Non-al...">
-            </div>
-            <div>
-                <label for="addCategory">Category</label>
-                <input type="text" id="addCategory" name="addCategory" placeholder="  Caps/ Corks/ Labels...">
-            </div>
-            <div>
-                <label for="addPrice">Price</label>
-                <input type="text" id="addPrice" name="addPrice" placeholder="  Price...">
-            </div>
-            <div>
-
-                <input type="file" id="addImage" name="addImage" accept="image/*">
-            </div>
-
-            <!-- add item button(submit) -->
-            
-
-        </div>
-        <button type="button" class="filterBtn" name="filterBtn" onclick="addItem()">Add Item</button>
+        
 </body>
 
 </html>
