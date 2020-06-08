@@ -28,6 +28,10 @@ SET time_zone = "+00:00";
 -- Table structure for table `items`
 --
 
+DROP TABLE IF EXISTS items;
+DROP TABLE IF EXISTS tokens;
+DROP TABLE IF EXISTS users;
+
 CREATE TABLE `items` (
   `id_uniq` int(11) NOT NULL COMMENT 'item id ',
   `type` int(4) NOT NULL COMMENT 'alcohol 1, non alc 2',
