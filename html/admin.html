@@ -9,7 +9,7 @@
     <link rel="stylesheet" type="text/css" href="../css/admin.css">
     <script src="../js/cookies.js"></script>
     <script src="../js/logout.js"></script>
-    <script src="../js/show.js"></script>
+    <script src="../js/admin.js"></script>
 </head>
 
 <body>
@@ -51,6 +51,12 @@
             </div>
 
         </div>
+    </div>
+
+    <div class="confirmPassword" id="confirmPasswordFrame">
+        <label for="confirmPassInput"><b>Confirm password:</b></label>
+        <input type="password" placeholder="Your password" id="confirmPassInput">
+        <button type="button" class="confirmButton" onclick="confirmPassword()">Confirm</button>
     </div>
 
 </body>

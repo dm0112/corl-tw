@@ -54,7 +54,7 @@ function tryLogin() {
             else if (data['responseCode'] == 400)
                 alert("Unknown error occured!");
             else {
-                alert("You have been logged in!");
+                alert("Welcome, " + username + "!");
                 //document.location.href = "index.html";
                 setUserCookie(username);
                 setUserMenu();

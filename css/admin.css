@@ -1,0 +1,51 @@
+/* admin page */
+
+.confirmPassword {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 300px;
+    border-color: rgb(31, 28, 28);
+    border-style: solid;
+    margin: auto;
+    margin-top: 100px;
+    margin-bottom: 100px;
+}
+
+.confirmButton {
+    display: flex;
+    justify-content: center;
+    margin: 20px 20px;
+    padding: 15px 15%;
+    overflow: hidden;
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+    color: white;
+    background-color: #790b4f;
+}
+
+.confirmPassword input,
+.confirmPassword label {
+    margin: 10px 20px;
+}
+
+.confirmPassword label {
+    font-size: 26px;
+}
+
+.confirmPassword input {
+    padding: 5px 10px;
+    font-size: 18px;
+}
+
+#confirmButton:hover {
+    opacity: 0.8;
+}
+
+
+/*.logRegFrame input[type="checkbox"] {
+    padding: 0;
+    vertical-align: middle;
+    text-align: center;
+}*/
