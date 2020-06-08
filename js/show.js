@@ -3,7 +3,7 @@ function refresh() {
 }
 
 
-function showMyItems(user){ //apel showMyItems(getCookie())
+function showMyItems(user) { //apel showMyItems(getCookie())
     var api = 'http://localhost/php/populateAPI.php?whichOnes=owned&user='.concat(user);
     console.log(api);
     fetch(api)
@@ -14,15 +14,15 @@ function showMyItems(user){ //apel showMyItems(getCookie())
             //     console.log(element);
             //     console.log( " ");
             // });
-            if(data['responseCode'] == 200){
-            // console.log(data['responseCode']);
-            cleanPage();
-            populate(data['results']);
-            }
-            else alert("Unknown error occured!");
+            if (data['responseCode'] == 200) {
+                // console.log(data['responseCode']);
+                cleanPage();
+                populate(data['results']);
+            } else alert("Unknown error occured!");
         });
 }
-function getAllUsers(user){ // apel getAllUsers(getCookie())
+
+function getAllUsers(user) { // apel getAllUsers(getCookie())
     var api = 'http://localhost/php/populateAPI.php?whichOnes=users&user='.concat(user);
     console.log(api);
     fetch(api)
@@ -33,11 +33,10 @@ function getAllUsers(user){ // apel getAllUsers(getCookie())
             //     console.log(element);
             //     console.log( " ");
             // });
-            if(data['responseCode'] == 200){
-            // console.log(data['responseCode']);
-            console.log(data['results']); // de facut functie pentru afisarea userilor
-            }
-            else alert("Unknown error occured!");
+            if (data['responseCode'] == 200) {
+                // console.log(data['responseCode']);
+                console.log(data['results']); // de facut functie pentru afisarea userilor
+            } else alert("Unknown error occured!");
         });
 }
 
@@ -68,8 +67,10 @@ function showOnLoad(link, str) {
     }
 }
 console.log(document.location.href.split("/").slice(-1)[0].split("#")[0] == "index.html");
+console.log(document.location.href.split("/").slice(-1));
 
-if (document.location.href.split("/").slice(-1)[0].split("#")[0] == "index.html")
+if (document.location.href.split("/").slice(-1)[0].split("#")[0] == "index.html" ||
+    document.location.href.split("/").slice(-1)[0].split("#")[0] == "")
     showOnLoad(undefined, document.location.href);
 // function sendHome(cat, type) {
 //     console.log(cat + " " + type);
@@ -112,12 +113,11 @@ function showAll() {
             //     console.log(element);
             //     console.log( " ");
             // });
-            if(data['responseCode'] == 200){
-            // console.log(data['responseCode']);
-            cleanPage();
-            populate(data['results']);
-            }
-            else alert("Unknown error occured!");
+            if (data['responseCode'] == 200) {
+                // console.log(data['responseCode']);
+                cleanPage();
+                populate(data['results']);
+            } else alert("Unknown error occured!");
         });
 
 }
@@ -141,11 +141,10 @@ function showPart(cat, type) {
         .then(data => {
             console.log(location.href.includes("index.html"));
             // console.log(data['responseCode']);
-            if(data['responseCode'] == 200){
-            cleanPage();
-            populate(data['results']);
-            }
-            else alert("Unknown error occured!");
+            if (data['responseCode'] == 200) {
+                cleanPage();
+                populate(data['results']);
+            } else alert("Unknown error occured!");
 
 
         });
@@ -155,13 +154,13 @@ function showPart(cat, type) {
 function populate(items) {
 
 
-    
+
     items.forEach(el => {
         // console.log(el);
 
 
         // elementul este despartit in 3 bucati pentru a verifica daca exista user logat pentru butonul de addToMyList
-        
+
         var elementPart1 =
             '                <div class = "item">' +
             // '                <button type="button" class="addToMyList" name="addToMyList" onclick="addToMyList(item, idUser)">+</button>' +
@@ -194,25 +193,25 @@ function populate(items) {
             '                        <td>Value</td>' +
             '                        <td>' + el[7] + '</td>' +
             '                    </tr>';
-        
-        if(getCookie()) var elementPart2 =
+
+        if (getCookie()) var elementPart2 =
             '                    <tr>' +
             '                        <td></td>' +
             '                        <td></td>' +
-            '                        <td><button type="button" class="addToMyList" name="addToMyList" onclick="addToMyList('+ el[0]+', ' + "'" + getCookie()+ "'" +')">➕</button></td>' +
+            '                        <td><button type="button" class="addToMyList" name="addToMyList" onclick="addToMyList(' + el[0] + ', ' + "'" + getCookie() + "'" + ')">➕</button></td>' +
             '                    </tr>';
-            else var elementPart2 = "";
-        var  elementPart3 = 
+        else var elementPart2 = "";
+        var elementPart3 =
 
             '                </table>' +
-            
+
             '                </div>';
         var element = elementPart1.concat(elementPart2).concat(elementPart3);
         document.getElementById("items").insertAdjacentHTML('beforeend', element);
 
     });
-    
-   
+
+
 }
 
 function type(a) {
