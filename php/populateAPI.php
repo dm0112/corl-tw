@@ -60,11 +60,12 @@ if(isset($_GET['whichOnes'])){
             $user = $_GET['user'];
     
             if($user=='admin'){
-            $stmt = mysqli_prepare($conn, "SELECT * FROM users");
-            
+            $stmt = mysqli_prepare($conn, "SELECT * FROM users where user!=?");
+            mysqli_stmt_bind_param($stmt,"s",$user);
             $execResult = $stmt->execute();
                 
             $response['results'] = $stmt->get_result()->fetch_all();
+            
             mysqli_stmt_close($stmt);
             if($execResult == true)
                 $response['responseCode'] = 200;

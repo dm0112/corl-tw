@@ -35,7 +35,8 @@ function getAllUsers(user){ // apel getAllUsers(getCookie())
             // });
             if(data['responseCode'] == 200){
             // console.log(data['responseCode']);
-            console.log(data['results']); // de facut functie pentru afisarea userilor
+            // console.log(data['results']); // de facut functie pentru afisarea userilor html
+            return data['results'];
             }
             else alert("Unknown error occured!");
         });

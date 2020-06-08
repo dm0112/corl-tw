@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 08, 2020 at 04:15 PM
+-- Generation Time: Jun 08, 2020 at 07:16 PM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.4.3
 
@@ -28,10 +28,6 @@ SET time_zone = "+00:00";
 -- Table structure for table `items`
 --
 
-DROP TABLE IF EXISTS items;
-DROP TABLE IF EXISTS tokens;
-DROP TABLE IF EXISTS users;
-
 CREATE TABLE `items` (
   `id_uniq` int(11) NOT NULL COMMENT 'item id ',
   `type` int(4) NOT NULL COMMENT 'alcohol 1, non alc 2',
@@ -49,7 +45,6 @@ CREATE TABLE `items` (
 
 INSERT INTO `items` (`id_uniq`, `type`, `category`, `description`, `country`, `img`, `name`, `price`) VALUES
 (3, 1, 'dasdsa', 'dsadsadsa', 'dsad', '[object File]', 'dsasda', 23),
-(4, 1, 'dasdsa', 'dsadsadsa', 'dsad', '[object File]', 'dsasda', 23),
 (5, 1, 'dasdsa', 'dsadsadsa', 'dsad', '[object File]', 'dsasda', 23),
 (6, 1, 'dasdsa', 'dsadsadsa', 'dsad', '[object File]', 'dsasda', 23),
 (7, 1, 'cass', 'das', 'dsadas', '[object File]', 'dasd', 22),
@@ -57,7 +52,9 @@ INSERT INTO `items` (`id_uniq`, `type`, `category`, `description`, `country`, `i
 (10, 1, 'dasdas', 'dasdsa', '1dsadsa', '[object File]', 'ddasdsadas', 0),
 (11, 1, 'dasdas', 'dasdsa', '1dsadsa', '[object File]', 'ddasdsadas', 0),
 (12, 1, 'dasdas', 'dasdsa', '1dsadsa', '[object File]', 'ddasdsadas', 0),
-(13, 1, 'dasdas', 'dasdsa', '1dsadsa', '[object File]', 'ddasdsadas', 0);
+(13, 1, 'dasdas', 'dasdsa', '1dsadsa', '[object File]', 'ddasdsadas', 0),
+(14, 2, 'Labels', 'Coke', 'Romania', 'undefined', 'Suc', 5),
+(15, 1, 'Corks', 'da', 'romania', 'undefined', 'Ciuc', 5);
 
 -- --------------------------------------------------------
 
@@ -67,25 +64,26 @@ INSERT INTO `items` (`id_uniq`, `type`, `category`, `description`, `country`, `i
 
 CREATE TABLE `itemsowned` (
   `username` varchar(60) NOT NULL,
-  `id_item` int(8) NOT NULL
+  `id_item` int(8) NOT NULL,
+  `id_relationship` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `itemsowned`
 --
 
-INSERT INTO `itemsowned` (`username`, `id_item`) VALUES
-('ffs', 2),
-('ffs', 2),
-('ffs', 2),
-('ffs', 3),
-('ffs', 4),
-('ffss', 4),
-('test', 1),
-('test', 3),
-('test', 5),
-('test', 6),
-('test', 4);
+INSERT INTO `itemsowned` (`username`, `id_item`, `id_relationship`) VALUES
+('ffs', 2, 1),
+('ffs', 2, 3),
+('ffs', 3, 4),
+('ffs', 4, 5),
+('ffss', 4, 6),
+('test', 1, 7),
+('test', 3, 8),
+('test', 5, 9),
+('test', 6, 10),
+('test', 4, 11),
+('test', 14, 12);
 
 -- --------------------------------------------------------
 
@@ -105,7 +103,8 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `email`, `user`, `password`) VALUES
-(34, 'test@test.com', 'test', '098f6bcd4621d373cade4e832627b4f6');
+(34, 'test@test.com', 'test', '098f6bcd4621d373cade4e832627b4f6'),
+(35, 'test2@gmail.com', 'test2', 'ad0234829205b9033196ba818f7a872b');
 
 --
 -- Indexes for dumped tables
@@ -116,6 +115,12 @@ INSERT INTO `users` (`id`, `email`, `user`, `password`) VALUES
 --
 ALTER TABLE `items`
   ADD PRIMARY KEY (`id_uniq`);
+
+--
+-- Indexes for table `itemsowned`
+--
+ALTER TABLE `itemsowned`
+  ADD PRIMARY KEY (`id_relationship`);
 
 --
 -- Indexes for table `users`
@@ -131,13 +136,19 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `items`
 --
 ALTER TABLE `items`
-  MODIFY `id_uniq` int(11) NOT NULL AUTO_INCREMENT COMMENT 'item id ', AUTO_INCREMENT=14;
+  MODIFY `id_uniq` int(11) NOT NULL AUTO_INCREMENT COMMENT 'item id ', AUTO_INCREMENT=16;
+
+--
+-- AUTO_INCREMENT for table `itemsowned`
+--
+ALTER TABLE `itemsowned`
+  MODIFY `id_relationship` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
+  MODIFY `id` int(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
