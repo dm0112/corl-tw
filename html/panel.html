@@ -9,6 +9,7 @@
     <link rel="stylesheet" type="text/css" href="../css/panel.css">
     <script src="../js/cookies.js"></script>
     <script src="../js/logout.js"></script>
+    <script src="../js/panel.js"></script>
 
 </head>
 
@@ -51,6 +52,43 @@
             </div>
 
         </div>
+    </div>
+
+    <div class="change">
+        <h1>Change Password</h1>
+
+        <hr id="line"></hr>
+
+        <label for="oldPass">Old password:</label>
+        <input type="password" placeholder="Old password" class="oldPass" id="oldPass">
+
+        <label for="newPass">New password:</label>
+        <input type="password" placeholder="New password" class="newPass" id="newPass">
+
+        <label for="newPassConfirm">Confirm new password:</label>
+        <input type="password" placeholder="Confirm new password" class="newPassConfirm" id="newPassConfirm">
+
+        <button type="button" class="changePassButton" onclick="changePass()">Update password</button>
+    </div>
+
+    <div class="change">
+        <h1>Change Email</h1>
+
+        <hr id="line"></hr>
+
+        <label for="oldEmail">Old email:</label>
+        <input type="text" placeholder="Old email" class="oldEmail" id="oldEmail">
+
+        <label for="newEmail">New email:</label>
+        <input type="text" placeholder="New email" class="newEmail" id="newEmail">
+
+        <label for="newEmailConfirm">Confirm new email:</label>
+        <input type="text" placeholder="Confirm new email" class="newEmailConfirm" id="newEmailConfirm">
+
+        <label for="oldPass">Password:</label>
+        <input type="password" placeholder="Confirm password" class="emailPass" id="emailPass">
+
+        <button type="button" class="changePassButton" onclick="changeEmail()">Update email</button>
     </div>
 </body>
 
