@@ -2,7 +2,10 @@
     display: flex;
     flex-direction: column;
     margin: 45px 0px;
+    width: auto;
+    max-width: 350px;
 }
+
 
 .line {
     border-style: solid;
@@ -57,3 +60,8 @@
 .change button:hover {
     opacity: 0.8;
 }
+/* @media only screen and (max-width: 400px) {
+    menu{
+        font-size:10px;
+    }
+  } */
