@@ -156,8 +156,8 @@ function populate(items) {
             '                        <td>Name</td>' +
             '                        <td>' + el[6] + '</td>' +
             '                    </tr>' +
-            // '                    <tr><img id = "imgItem" src="' + el[5] + '" alt=""> ' + //imaginea care 2x erori
-            '                    <tr><img id = "imgItem" src="test.jpg" alt=""> ' + //imaginea care 2x erori
+            '                    <tr><img id = "imgItem" src="' + '../images/' + el[5] + '" alt=""> ' + //imaginea care 2x erori
+            // '                    <tr><img id = "imgItem" src="test.jpg" alt=""> ' + //imaginea care 2x erori
 
             '                      </tr>' +
             '                    <tr>' +

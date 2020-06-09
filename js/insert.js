@@ -37,26 +37,61 @@ function addItem() {
 
 
 
+    
+    const formData = new FormData();
+    formData.append('files[]',img);
+    apiImg = api.concat("&image=yes");
 
-    // api = api.concat("&name=", name, "&description=", description, "&country=", country,"&type=", type, "&category=", category,"&price=",price,"&img=",img);
+    fetch(apiImg,{
+        method: 'POST',
+        body: formData,
+    })
+    .then(response => response.json())
+    .then(data => {
+        // console.log(data);
+        if(data['responseCode']==200){
+            api = api.concat("&name=", name, "&description=", description, "&country=", country,"&type=", type, "&category=", category,"&price=",price,"&img=",data['imgName']);
+
+            fetch(api)
+            .then(result => result.json())
+            .then(data => {
+
+                // if (data['responseCode'] == 200) {
+                //     console.log(data);
+                    alert("Item inserted successfully ");
+                    window.location.replace("index.html");
+                // } else alert("Unknown error occured!");
+                console.log(data);
+
+            });
+
+            }
+            else alert("Item add failed, check the fields!")
+      })
+}
+
     // ----  
     // var imgconv = 'http://localhost/php/base64conv.php'
     
     //  imaginea nu se bine in db, de continuat aici
-    api = api.concat("name=", name, "&description=", description, "&country=", country, "&type=", type, "&category=", category, "&price=", price, "&img=", img);
+    // api = api.concat("name=", name, "&description=", description, "&country=", country, "&type=", type, "&category=", category, "&price=", price, "&img=", img);
     // api = api.concat("&img=",img);
-    console.log("name=", name, "&description=", description, "&country=", country, "&type=", type, "&category=", category, "&price=", price, "&img=", img)
-    fetch(api)
-        .then(result => result.json())
-        .then(data => {
 
-            if (data['responseCode'] == 200) {
-                console.log(data);
-                alert("Item inserted successfully ");
-                window.location.replace("index.html");
-            } else alert("Unknown error occured!");
-
-        });
-    }
     
+    // console.log("name=", name, "&description=", description, "&country=", country, "&type=", type, "&category=", category, "&price=", price, "&img=", img)
+    // console.log(api);
+    // console.log(img);
+    // fetch(api)
+    //     .then(result => result.json())
+    //     .then(data => {
 
+    //         // if (data['responseCode'] == 200) {
+    //         //     console.log(data);
+    //         //     alert("Item inserted successfully ");
+    //         //     window.location.replace("index.html");
+    //         // } else alert("Unknown error occured!");
+    //         console.log(data);
+
+    //     });
+    // }
+    
