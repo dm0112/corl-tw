@@ -22,24 +22,8 @@ function showMyItems(user) { //apel showMyItems(getCookie())
         });
 }
 
-function getAllUsers(user) { // apel getAllUsers(getCookie())
-    var api = 'http://localhost/php/populateAPI.php?whichOnes=users&user='.concat(user);
-    console.log(api);
-    fetch(api)
-        .then(result => result.json())
-        .then(data => {
-            // console.log(data);
-            // data.forEach(element => {
-            //     console.log(element);
-            //     console.log( " ");
-            // });
-            if (data['responseCode'] == 200) {
-                // console.log(data['responseCode']);
-                console.log(data['results']); // de facut functie pentru afisarea userilor
-            } else alert("Unknown error occured!");
-        });
-}
-
+//console.log(document.cookie);
+//getAllUsers(getCookie());
 
 function showOnLoad(link, str) {
     var page;

@@ -30,7 +30,10 @@ function tryRegister() {
                 alert("User already exists!");
             else if (data['responseCode'] == 400)
                 alert("Unknown error occured!");
-            else alert("User successfully registered!");
+            else {
+                alert("User successfully registered!");
+                showLogin();
+            }
         });
 }
 

@@ -28,6 +28,10 @@ SET time_zone = "+00:00";
 -- Table structure for table `items`
 --
 
+DROP TABLE IF EXISTS items;
+DROP TABLE IF EXISTS itemsowned;
+DROP TABLE IF EXISTS users;
+
 CREATE TABLE `items` (
   `id_uniq` int(11) NOT NULL COMMENT 'item id ',
   `type` int(4) NOT NULL COMMENT 'alcohol 1, non alc 2',
@@ -103,8 +107,36 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `email`, `user`, `password`) VALUES
-(34, 'test@test.com', 'test', '098f6bcd4621d373cade4e832627b4f6'),
-(35, 'test2@gmail.com', 'test2', 'ad0234829205b9033196ba818f7a872b');
+(35, 'admin@colr.com', 'admin', '81dc9bdb52d04dc20036dbd8313ed055'),
+(52, 'asdasaaa', '11ssaaasds', 'c20ad4d76fe97759aa27a0c99bff6710'),
+(62, '12311', '12311', '202cb962ac59075b964b07152d234b70'),
+(63, '123111', '123111', '202cb962ac59075b964b07152d234b70'),
+(65, '12311111', '12311121', '202cb962ac59075b964b07152d234b70'),
+(66, '123111113', '123111212', '202cb962ac59075b964b07152d234b70'),
+(67, '123111113a', '123111212a', '202cb962ac59075b964b07152d234b70'),
+(69, 'asda', 'aa', '202cb962ac59075b964b07152d234b70'),
+(70, 'asdas', 'aaa', '202cb962ac59075b964b07152d234b70'),
+(71, 'asdasa', 'aaas', '202cb962ac59075b964b07152d234b70'),
+(72, 'a', 'a', '0cc175b9c0f1b6a831c399e269772661'),
+(73, 'as', 'as', '4124bc0a9335c27f086f24ba207a4912'),
+(74, 'asa', 'asa', '4124bc0a9335c27f086f24ba207a4912'),
+(75, 'asaa', 'asaa', '4124bc0a9335c27f086f24ba207a4912'),
+(76, 'asaaa', 'asaaa', '4124bc0a9335c27f086f24ba207a4912'),
+(77, 'asaaah', 'asaaah', '4124bc0a9335c27f086f24ba207a4912'),
+(78, 'asaaahg', 'asaaahg', '4124bc0a9335c27f086f24ba207a4912'),
+(79, 'asaaahgf', 'asaaahgf', '4124bc0a9335c27f086f24ba207a4912'),
+(80, 'asaaahgfe', 'asaaahgfz', '4124bc0a9335c27f086f24ba207a4912'),
+(81, '1', '2', '4124bc0a9335c27f086f24ba207a4912'),
+(82, '12', '21', '4124bc0a9335c27f086f24ba207a4912'),
+(83, '124', '213', '4124bc0a9335c27f086f24ba207a4912'),
+(84, '1242', '2132', '4124bc0a9335c27f086f24ba207a4912'),
+(85, '12424', '21324', '4124bc0a9335c27f086f24ba207a4912'),
+(86, '124241', '213241', '4124bc0a9335c27f086f24ba207a4912'),
+(87, '1242412', '2132411', '4124bc0a9335c27f086f24ba207a4912'),
+(88, '12424121', '21324111', '4124bc0a9335c27f086f24ba207a4912'),
+(89, '3', '3', '4124bc0a9335c27f086f24ba207a4912'),
+(90, '4', '4', '4124bc0a9335c27f086f24ba207a4912'),
+(91, '45', '45', '4124bc0a9335c27f086f24ba207a4912');
 
 --
 -- Indexes for dumped tables

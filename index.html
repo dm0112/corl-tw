@@ -11,6 +11,7 @@
     <script src="js/cookies.js"></script>
     <script src="js/filter.js"></script>
     <script src="js/insert.js"></script>
+    <script src="js/cookies.js"></script>
     <script src="js/show.js"></script>
     <script src="js/logout.js"></script>
     <script src="js/operations.js"></script>
@@ -53,7 +54,7 @@
             <div class="subMenu" id="loggedIn">
                 <div class="subMenuBtn" id="usernameMenu">User</div>
                 <div class="subMenuContent">
-                    <a href="html/panel.html">Preferences</a>
+                    <a href="html/panel.html">User Panel</a>
                     <a href="html/admin.html" id="adminPanel" onclick="checkAdminPermissions()">Administrator Panel</a>
                     <div class="logoutBtn" onclick="logout()">Logout</div>
                 </div>
@@ -65,17 +66,17 @@
 
     <!-- <div style="height: 2500px;"> -->
     <div id="allBody">
-        
+
         <div id="addItem">
             <!-- <div>
                 <label for="addType">Type</label>
                 <input type="text" id="addType" name="addType" placeholder="  1 Alcoholic/ 2 Non-al...">
             </div> -->
 
-            <div class = "radioButtons">
+            <div class="radioButtons">
                 <!-- <label for="type">Type</label>
                 <input type="text" id="type" name="type" placeholder="  1 Alcoholic/ 2 Non-al..."> -->
-                
+
                 <input type="radio" id="addType1" name="addType" value="1">
                 <label for="addType1">Alcoholic</label>
 
@@ -96,12 +97,12 @@
                 <label for="addCountry">Country</label>
                 <input type="text" id="addCountry" name="addCountry" placeholder="  Country...">
             </div>
-            
+
             <!-- <div>
                 <label for="addCategory">Category</label>
                 <input type="text" id="addCategory" name="addCategory" placeholder="  Caps/ Corks/ Labels...">
             </div> -->
-            <div class = "radioButtons">
+            <div class="radioButtons">
                 <!-- <label for="category">Category</label>
                 <input type="text" id="category" name="category" placeholder="  Caps/ Corks/ Labels..."> -->
 
@@ -140,10 +141,10 @@
 
         <div id="filter">
 
-            <div class = "radioButtons">
+            <div class="radioButtons">
                 <!-- <label for="type">Type</label>
                 <input type="text" id="type" name="type" placeholder="  1 Alcoholic/ 2 Non-al..."> -->
-                
+
                 <input type="radio" id="type1" name="type" value="1">
                 <label for="type1">Alcoholic</label>
 
@@ -163,8 +164,8 @@
                 <label for="country">Country</label>
                 <input type="text" id="country" name="country" placeholder="  Country...">
             </div>
-            
-            <div class = "radioButtons">
+
+            <div class="radioButtons">
                 <!-- <label for="category">Category</label>
                 <input type="text" id="category" name="category" placeholder="  Caps/ Corks/ Labels..."> -->
 
@@ -191,6 +192,7 @@
 
             </div>
             <!--  -->
+<<<<<<< HEAD
             <!-- temporary -->
             <div>
                 <!-- add item BTN -->
@@ -205,6 +207,9 @@
 
             </div>
             <!--  -->
+=======
+
+>>>>>>> f789a5945b5941190e543c2bb7c62d484d92eebe
 
             <button type="button" class="filterBtn" name="filterBtn" onclick="filter()">Search</button>
 
@@ -259,7 +264,9 @@
 
         </div>
         <canvas id="myChart"></canvas>
-        <script>test()</script>
+        <script>
+            test()
+        </script>
 </body>
 
 </html>
