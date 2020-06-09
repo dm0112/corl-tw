@@ -8,15 +8,16 @@
     <link rel="stylesheet" type="text/css" href="css/menu.css">
     <link rel="stylesheet" type="text/css" href="css/index.css">
     <meta name="Description" content="Fine web collector for drinks.">
+    <script src="js/cookies.js"></script>
     <script src="js/filter.js"></script>
     <script src="js/insert.js"></script>
     <script src="js/show.js"></script>
     <script src="js/logout.js"></script>
-    <script src="js/cookies.js"></script>
     <script src="js/operations.js"></script>
     <script src="js/charts.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
-
+    <script src="js/exports.js"></script>
+    
 </head>
 
 <body>
@@ -190,16 +191,29 @@
 
             </div>
             <!--  -->
+            <!-- temporary -->
+            <div>
+                <!-- add item BTN -->
+                <input type="submit" value="exportCSV" id="exportCSV" name="exportCSV" onclick="exportCSV()">
+
+            </div>
+            <!--  -->
             
+            <div>
+                <!-- add item BTN -->
+                <input type="submit" value="exportDocBook" id="exportDocBook" name="exportDocBook" onclick="exportDocBook()">
+
+            </div>
+            <!--  -->
 
             <button type="button" class="filterBtn" name="filterBtn" onclick="filter()">Search</button>
 
         </div>
 
         <div id="items">
-            <!-- <script>
+            <script>
                 showAll();
-            </script> -->
+            </script>
 
 
 

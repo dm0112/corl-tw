@@ -69,6 +69,7 @@ function showOnLoad(link, str) {
 console.log(document.location.href.split("/").slice(-1)[0].split("#")[0] == "index.html");
 console.log(document.location.href.split("/").slice(-1));
 
+
 if (document.location.href.split("/").slice(-1)[0].split("#")[0] == "index.html" ||
     document.location.href.split("/").slice(-1)[0].split("#")[0] == "")
     showOnLoad(undefined, document.location.href);
@@ -104,7 +105,7 @@ function showAll() {
 
     //sendHome(undefined, undefined);
     var api = 'http://localhost/php/populateAPI.php?whichOnes=all&type=';
-    console.log(api);
+    // console.log(api);
     fetch(api)
         .then(result => result.json())
         .then(data => {
@@ -117,6 +118,7 @@ function showAll() {
                 // console.log(data['responseCode']);
                 cleanPage();
                 populate(data['results']);
+                // console.log(getCookie());
             } else alert("Unknown error occured!");
         });
 
