@@ -3,4 +3,5 @@ function logout() {
     document.getElementById("notLoggedIn").style.display = "flex";
     document.getElementById("loggedIn").style.display = "none";
     deleteGlobalCookie("user");
+    location.reload();
 }

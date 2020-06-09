@@ -1,8 +1,12 @@
 <?php 
 header("Content-Type:application/json");
 header("Access-Control-Allow-Origin:*");
+require_once("connect.php");
+    if(isset($_GET["operation"]))
+    $operation = $_GET["operation"];
 
-    require_once("connect.php");
+    if($operation=="charts")
+    {
     $resultFinal;
 
     $stmt = mysqli_prepare($conn, "select count(*) from users");
@@ -29,12 +33,18 @@ header("Access-Control-Allow-Origin:*");
     mysqli_stmt_close($stmt);
     $resultFinal['ownedCount'] = $result;
 
-    
-    
-
-
     echo json_encode($resultFinal);
-
+    }
+    else if($operation=="top"){
+    /// primim toate informatiile intr-un top descrescator + numarul aparitiilor pe ultima coloana
+    $stmt = mysqli_prepare($conn, "SELECT i.*, count(io.username) FROM itemsowned io join items i on i.id_uniq=io.id_item  group by id_item order by count(username) desc");
+    // SELECT i.*, count(io.username) FROM itemsowned io join items i on i.id_uniq=io.id_item  group by id_item order by count(username) desc
+    $stmt->execute();
+    $result = $stmt->get_result()->fetch_all();
+    mysqli_stmt_close($stmt);
+    $resultFinal['topDesc'] = $result;
+    echo json_encode($resultFinal);
+    }
 
 
 

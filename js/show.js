@@ -45,10 +45,11 @@ function showOnLoad(link, str) {
         } else {
             showPart("all", type)
         }
-    } else {
-        console.log("showall");
-        showAll();
-    }
+    } 
+    // else { //// provoaca erori la loading first time (in incognito de ex) + nu are rost
+    //     console.log("showall");
+    //     showAll();
+    // }
 }
 console.log(document.location.href.split("/").slice(-1)[0].split("#")[0] == "index.html");
 console.log(document.location.href.split("/").slice(-1));

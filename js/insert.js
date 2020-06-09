@@ -8,19 +8,6 @@ function reverseShowInsert() {
     document.getElementById("filter").style.display = "flex";
 }
 
-function getBase64(file, callback) {
-
-    const reader = new FileReader();
-
-    reader.addEventListener('load', () => callback(reader.result));
-
-    reader.readAsDataURL(file);
-}
-
-function callback(img) {
-    // console.log("Base64 of file is", base64Data); // Here you can have your code which uses Base64 for its operation, // file to Base64 by oneshubh
-    console.log(img);
-}
 
 
 function addItem() {
@@ -53,7 +40,8 @@ function addItem() {
 
     // api = api.concat("&name=", name, "&description=", description, "&country=", country,"&type=", type, "&category=", category,"&price=",price,"&img=",img);
     // ----  
-    // getBase64(img, callback);
+    // var imgconv = 'http://localhost/php/base64conv.php'
+    
     //  imaginea nu se bine in db, de continuat aici
     api = api.concat("name=", name, "&description=", description, "&country=", country, "&type=", type, "&category=", category, "&price=", price, "&img=", img);
     // api = api.concat("&img=",img);
@@ -69,6 +57,6 @@ function addItem() {
             } else alert("Unknown error occured!");
 
         });
-
+    }
     
-}
+
