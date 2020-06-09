@@ -34,6 +34,9 @@ function showOnLoad(link, str) {
     //var page = document.location.href.split("/").slice(-1)[0].split("#");
     if (page[1] != undefined) {
         var type;
+
+        page[2] = page[1].split("_")[1];
+        page[1] = page[1].split("_")[0];
         if (page[1] == "alcoholic")
             type = 1;
         else
@@ -45,7 +48,7 @@ function showOnLoad(link, str) {
         } else {
             showPart("all", type)
         }
-    } 
+    }
     // else { //// provoaca erori la loading first time (in incognito de ex) + nu are rost
     //     console.log("showall");
     //     showAll();

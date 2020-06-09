@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="ro">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>Colr</title>
+    <link rel="stylesheet" type="text/css" href="scholarly.css">
+    <!-- <script src="./scholarly_template_files/scholarly.min.js.download"></script> -->
+</head>
+
+<body prefix="schema: http://schema.org">
+    <header>
+        <h1>Colr Project</h1>
+    </header>
+    <div role="contentinfo">
+        <ol role="directory">
+            <li><a href="#abstract"><span>1. </span>Abstract</a></li>
+            <li><a href="#introduction"><span>2. </span>Introduction</a></li>
+            <li><a href="#structure"><span>3. </span>Structure</a>
+                <ol role="directory">
+                    <li><a href="#database"><span>3.1 </span>Database</a></li>
+                    <li><a href="#technologies"><span>3.2 </span>Technologies</a></li>
+                    <li><a href="#home"><span>3.3 </span>Home page</a></li>
+                    <li><a href="#logreg"><span>3.4 </span>Login / Register page</a></li>
+                    <li><a href="#panel"><span>3.5 </span>User Panel page</a></li>
+                    <li><a href="#admin"><span>3.6 </span>Admin Panel page</a></li>
+
+                </ol>
+            </li>
+            <li><a href="#biblio-references"><span>4. </span>References</a></li>
+        </ol>
+        <dl>
+            <dt>Authors</dt>
+            <dd>Movila Serban Costin</dd>
+            <dd>Mihai Daniel</dd>
+            <dt>Discussion Group</dt>
+            <dd property="schema:listDiscussionGroup" typeof="schema:DiscussionGroup">
+                <a href="https://github.com/lowlyN/corl-tw" property="schema:linkDiscussionGroup">GitHub
+                        Repository</a>
+            </dd>
+        </dl>
+    </div>
+    <section typeof="sa:Abstract" id="abstract" role="doc-abstract">
+        <h2><span>1. </span>Abstract</h2>
+        <p>
+            Colr este o platforma pentru colectionarii de capace, dopuri de pluta si etichete ale diverselor bauturi alcoolice si non-alcoolice. de obiecte.
+        </p>
+    </section>
+    <section id="introduction" role="doc-introduction">
+        <h2><span>2. </span>Introduction</h2>
+        <p>
+            Colr este mediul perfect pentru colectionari. Prin Colr, utilizatorii logati pot sa adauge obiecte pe platforma, sa isi creeze, actualizeze si vizualizeze propria lor colectie. De asemenea, se pot vizualiza si statistici referitoare la obiecte si utilizatori,
+            topuri si se pot exporta datele expuse pe site in diferite formate (CSV, RSS, DocBook).
+        </p>
+    </section>
+    <section id="structure">
+        <h2><span>3. </span>Structure</h2>
+        <p>
+            In cadrul acestui capitol, vom prezenta structura proiectului, constand in:
+        </p>
+        <ul>
+            <li>Structura bazei de date</li>
+            <li>Prezentarea elementelor speciale de back-end si front-end</li>
+            <li>Structura si functionalitatea paginilor</li>
+
+        </ul>
+        <p>
+            Astfel, in descrierea aferenta fiecarei pagini, se va respecta urmatoarea structura a ideilor:
+        </p>
+        <ol>
+            <li>Prezentarea generala a paginii</li>
+            <li>Descrierea functionalitatilor generale, cu:
+                <ul>
+                    <li>Elemente de front-end</li>
+                    <li>Elemente de back-end</li>
+                    <li>Relatia cu baza de date</li>
+                </ul>
+            </li>
+            <li>Conditii de acces si alte elemente specifice paginii</li>
+        </ol>
+        <section id="database">
+            <h3><span>3.1 </span>Database
+            </h3>
+            <p>
+                Folosim serverul si baza de date prin XAMPP. Structura acesteia este relativ simpla, cu 3 tabele:
+            </p>
+            <ol>
+                <li>items
+                    <ul>
+                        <li>stocheaza toate colectionabilele</li>
+                    </ul>
+                </li>
+                <li>users
+                    <ul>
+                        <li>stocheaza toate datele utilizatorilor</li>
+                        <li>parolele stocate sunt criptate</li>
+                    </ul>
+                </li>
+                <li>itemsowned
+                    <ul>
+                        <li>se leaga tabelele <i>items</i> si <i>users</i>, stocand toate obiectele detinute de utilizatori</li>
+                    </ul>
+                </li>
+            </ol>
+
+        </section>
+        <section id="technologies">
+            <h3><span>3.2 </span>Technologies
+            </h3>
+            <p>
+                Pentru a face legatura cu baza de date, s-au folosit o serie de fisiere <i>.php</i> pentru API, conform paradigmei REST.
+            </p>
+        </section>
+
+        <section id="home">
+            <h3><span>3.3 </span>Home page
+            </h3>
+            <p>
+                Fisierul <code>index.html</code> reprezinta pagina home, unde se pot gasi urmatoarele elemente: </p>
+            <ul>
+                <li>Meniul, prezent pe toate paginile site-ului, este format din urmatoarele elemente:
+                    <ul>
+                        <li>Home: face redirect catre pagina de home</li>
+                        <li>Alcoholic: afiseaza pe pagina home toate obiectele de tip alcoolic, si la actiunea de hover se afiseaza urmatorul submeniu:
+                            <ul>
+                                <li>Caps: afiseaza lista cu capacele de tip alcoolic</li>
+                                <li>Corks: afiseaza lista cu dopurile de pluta de tip alcoolic</li>
+                                <li>Labels: afiseaza lista cu etichetele de tip alcoolic</li>
+                            </ul>
+                        </li>
+                        <li>Non-alcoholic: afiseaza pe pagina home toate obiectele de tip non-alcoolic, si la actiunea de hover se afiseaza urmatorul submeniu:
+                            <ul>
+                                <li>Caps: afiseaza lista cu capacele de tip non-alcoolic</li>
+                                <li>Corks: afiseaza lista cu dopurile de pluta de tip non-alcoolic</li>
+                                <li>Labels: afiseaza lista cu etichetele de tip non-alcoolic</li>
+                            </ul>
+                        </li>
+                        <li>Username menu: contine un submeniu specific utilizatorului, cu urmatoarele elemente:
+                            <ul>
+                                <li>User panel: deschide panoul utilizator</li>
+                                <li>My items: afiseaza lista cu elementele detinute de utilizator</li>
+                                <li>Administrator panel: deschide panoul administrator, prezent doar in cazul in care administratorul este logat</li>
+                                <li>Logout: permite utilizatorului sa se delogheze</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <li>Search bar multicriterial
+                </li>
+                <li>Buton pentru adaugarea unui obiect nou
+
+                </li>
+                <li>Containerul cu elementele afisate, pe baza criteriilor introduse, impreuna cu butonul de adaugare element in colectie</li>
+                <li>Graficul cu statisticile referitoare la utilizatori si obiecte</li>
+            </ul>
+
+        </section>
+
+        <section id="logreg">
+            <h3><span>3.4 </span>Login / Register page
+            </h3>
+            <p>
+                Fisierul <code>logreg.html</code> reprezinta pagina pentru inregistrarea si autentificarea utilizatorilor, unde se pot gasi urmatoarele elemente: </p>
+            <ul>
+                <li>Meniul</li>
+                <li>Formularul de register</li>
+                <li>Formularul de login</li>
+            </ul>
+            <p>Dupa inregistrarea utilizatorului, acesta va fi redirectionat automat catre login. Acesta poate opta pentru salvarea credentialelor, bifand checkbox-ul "rememberMe", sau debifand-ul pentru a goli cookie-ul si, implicit, campurile. In cazul
+                autentificarii cu succes, utilizatorul este redirectionat catre home</p>
+
+        </section>
+
+        <section id="panel">
+            <h3><span>3.5 </span>User panel
+            </h3>
+            <p>
+                Fisierul <code>panel.html</code> reprezinta pagina pentru panoul utilizatorului, unde se pot gasi urmatoarele elemente: </p>
+            <ul>
+                <li>Meniul</li>
+                <li>Change password</li>
+                <li>Change email</li>
+            </ul>
+            <p>Aceasta pagina permite utilizatorului logat sa isi schimbe parola si/sau emailul. In cazul in care un client neautentificat doreste sa acceseze URL-ul, acesta nu primeste acces pe baza cookie-ului.</p>
+
+        </section>
+
+        <section id="admin">
+            <h3><span>3.6 </span>Admin panel
+            </h3>
+            <p>
+                Fisierul <code>admin.html</code> reprezinta pagina pentru panoul administrator, unde se pot gasi urmatoarele elemente: </p>
+            <ul>
+                <li>Meniul</li>
+                <li>Confirm password</li>
+                <li>User table</li>
+            </ul>
+            <p>Aceasta pagina permite administratorului sa radieze utilizatori din baza de data, insa numai pe baza confirmarii parolei. Se foloseste cookie-ul pentru a verifica faptul ca URL-ul nu este accesat de un utilizator strain.</p>
+
+        </section>
+
+
+
+        <section id="biblio-references">
+            <h2><span>4. </span>References</h2>
+            <ul>
+                <li typeof="sa:listTW" property="schema:TW">
+                    <span property="schema:nameReferences">Tehnologii Web</span>
+                    <ul>
+                        <li property="schema:linkReferences" typeof="schema:References">
+                            <a href="https://profs.info.uaic.ro/~busaco/teach/courses/web/" property="schema:linkTW">Curs</a>
+                        </li>
+                    </ul>
+
+                    <ul>
+                        <li property="schema:linkReferences" typeof="schema:References">
+                            <a href="https://devdrive.io/team/Ciprian/web-2020-x" property="schema:linkTW">DevDrive</a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+
+            <ul>
+                <li typeof="sa:listW3" property="schema:W3">
+                    <span property="schema:nameReferencesTutorial">W3 Schools</span>
+                    <ul>
+                        <li property="schema:linkReferencesTutorial" typeof="schema:References">
+                            <a href="https://www.w3schools.com/html/" property="schema:linkHTML">HTML</a>
+                        </li>
+                        <li property="schema:linkReferencesTutorial" typeof="schema:References">
+                            <a href="https://www.w3schools.com/css/" property="schema:linkCSS">CSS</a>
+                        </li>
+                        <li property="schema:linkReferencesTutorial" typeof="schema:References">
+                            <a href="https://www.w3schools.com/js/" property="schema:linkJS">JavaScript</a>
+                        </li>
+                        <li property="schema:linkReferencesTutorial" typeof="schema:References">
+                            <a href="https://www.w3schools.com/php/" property="schema:linkPHP">PHP</a>
+                        </li>
+                        <li property="schema:linkReferencesTutorial" typeof="schema:References">
+                            <a href="https://www.w3schools.com/sql/" property="schema:linkSQL">MySql</a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </section>
+    </section>
+</body>
+
+</html>
