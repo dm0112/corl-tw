@@ -32,6 +32,7 @@ body {
 }
 
 .myItemsBtn,
+.topItemsBtn,
 .logoutBtn,
 .menu a,
 .subMenuBtn,
@@ -47,6 +48,7 @@ body {
 }
 
 .myItemsBtn,
+.topItemsBtn,
 .logoutBtn,
 .subMenuBtn,
 .subMenuContent a {
@@ -74,12 +76,14 @@ body {
 .subMenu:hover .subMenuBtn,
 .subMenuBtn:hover,
 .logoutBtn:hover,
-.myItemsBtn:hover {
+.myItemsBtn:hover,
+.topItemsBtn:hover {
     background-color: #420420;
 }
 
 .logoutBtn,
 .myItemsBtn,
+.topItemsBtn,
 .subMenuContent a {
     height: 45px;
 }

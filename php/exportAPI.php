@@ -34,7 +34,7 @@ fseek($fp, 0);
 
 
 }
-/// how many countries, how many items from each country, how many corks/ labels/ caps from each country // top utilizatori / top iteme
+/// how many countries, how many items from each country, how many corks/ labels/ caps from each country
 else if($operation=="exportDocBook"){
     
 
