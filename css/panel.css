@@ -50,7 +50,8 @@
 }
 
 .change input {
-    width: 500px;
+    width: auto;
+    max-width: 500px;
 }
 
 .change button:hover {

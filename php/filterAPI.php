@@ -105,7 +105,7 @@ mysqli_stmt_bind_param($stmt,str_repeat('s',$i),$conditions[$i-3],$conditions[$i
 elseif($i==2)
 mysqli_stmt_bind_param($stmt,str_repeat('s',$i),$conditions[$i-2],$conditions[$i-1]);
 elseif($i==1)
-mysqli_stmt_bind_param($stmt,str_repeat('s',$i),$conditions[$i-1]);
+mysqli_stmt_bind_param($stmt,'s',$conditions[$i-1]);
 
 $execResult = $stmt->execute();
 

@@ -1,103 +1,66 @@
 function exportCSV(){
     // console.log(item_id, username);
-    var api = 'http://localhost/php/exportAPI.php';
-    fetch(api)
-        .then(result => result.json())
-        .then(data => {
-            // console.log(location.href.includes("index.html"));
-            // console.log(data['responseCode']);
-            if(data['responseCode'] == 200){
-            // console.log("added succesfully");
+    var api = 'http://localhost/php/exportAPI.php?operation=exportCSV';
+    location.replace(api);
+    // fetch(api)
+    //     .then(result => result.text())
+    //     .then(data => {
+    //         // console.log(location.href.includes("index.html"));
+    //         // console.log(data['responseCode']);
+    //         // if(data['responseCode'] == 200){
+    //         console.log("export succesfully");
             
-            // console.log(data['results'])
-            data['results'].forEach(element => {
-                element[0] = type(element[0]);
-            });
-            // one line csv |
-            //              |
-            //              v
-            let csvContent = "Type, Category, Description, Country, Name, Price \n" + data['results'].map(e => e.join(",")).join("\n");
-            // var encodedUri = encodeURI(data['results']);
-            // window.open(encodedUri);
-            console.log(csvContent);
+    //         // console.log(data['results'])
+    //         // data['results'].forEach(element => {
+    //         //     element[0] = type(element[0]);
+    //         // });
+    //         // // one line csv |
+    //         // //              |
+    //         // //              v
+    //         // let csvContent = "Type, Category, Description, Country, Name, Price \n" + data['results'].map(e => e.join(",")).join("\n");
+    //         // // var encodedUri = encodeURI(data['results']);
+    //         // // window.open(encodedUri);
+    //         // console.log(csvContent);
 
-            exportCSVFile(csvContent,"ok");
-            }
-            else if(data['responseCode'] == 400)
-                    alert("Item already in the list");
-                    else alert("Unkown error occured!");
+    //         // exportCSVFile(csvContent,"ok");
+    //         // }
+    //         // else alert("Unkown error occured!");
     
-        });
+    //     });
 
 }
 
-function exportCSVFile(csv, fileTitle) {
+// function exportCSVFile(csv, fileTitle) {
     
-    // Convert Object to JSON
-    // var jsonObject = JSON.stringify(items);
+//     // Convert Object to JSON
+//     // var jsonObject = JSON.stringify(items);
 
     
 
-    var exportedFilenmae = fileTitle + '.csv' || 'export.csv';
+//     var exportedFilenmae = fileTitle + '.csv' || 'export.csv';
 
-    var blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
-    if (navigator.msSaveBlob) { // IE 10+
-        navigator.msSaveBlob(blob, exportedFilenmae);
-    } else {
-        var link = document.createElement("a");
-        if (link.download !== undefined) { // feature detection
-            // Browsers that support HTML5 download attribute
-            var url = URL.createObjectURL(blob);
-            link.setAttribute("href", url);
-            link.setAttribute("download", exportedFilenmae);
-            link.style.visibility = 'hidden';
-            document.body.appendChild(link);
-            link.click();
-            document.body.removeChild(link);
-        }
-    }
-}
+//     var blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
+//     if (navigator.msSaveBlob) { // IE 10+
+//         navigator.msSaveBlob(blob, exportedFilenmae);
+//     } else {
+//         var link = document.createElement("a");
+//         if (link.download !== undefined) { // feature detection
+//             // Browsers that support HTML5 download attribute
+//             var url = URL.createObjectURL(blob);
+//             link.setAttribute("href", url);
+//             link.setAttribute("download", exportedFilenmae);
+//             link.style.visibility = 'hidden';
+//             document.body.appendChild(link);
+//             link.click();
+//             document.body.removeChild(link);
+//         }
+//     }
+// }
 
 function exportDocBook(){
     // console.log(item_id, username);
-    var api = 'http://localhost/php/exportAPI.php?';
-    fetch(api)
-        .then(result => result.json())
-        .then(data => {
-            // console.log(location.href.includes("index.html"));
-            // console.log(data['responseCode']);
-            // if(data['responseCode'] == 200){
-            // console.log("added succesfully");
-            // }
-            // else if(data['responseCode'] == 400)
-            //         alert("Item already in the list");
-            //         else alert("Unkown error occured!");
-        // console.log(OBJtoXML(data['results']));
-        // var xml = jsonToXml(data['results']);
-        // console.log(xml);
-        
-        data['results'].forEach(element => {
-            element[0] = type(element[0]);
-        });
-        console.log(obj2xml(data['results']));
-            // console.log(data['results']);
-            // let idModified = data['results'].map(
-            //     obj => {
-            //         return {
-            //             "Type" : obj[0],
-            //             "Category":obj[1],
-            //             "Description":obj[2],
-            //             "Country":obj[3],
-            //             "Name":obj[4],
-            //             "Price":obj[5]
-            //         }
-            //     }
-            // );
-            // console.log(idModified);
-
-            // console.log(obj2xml(idModified));
-
-        });
+    var api = 'http://localhost/php/exportAPI.php?operation=exportDocBook';
+    location.replace(api);
 
 
         

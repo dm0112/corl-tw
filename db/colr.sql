@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 08, 2020 at 07:16 PM
+-- Generation Time: Jun 09, 2020 at 11:32 PM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.4.3
 
@@ -27,7 +27,6 @@ SET time_zone = "+00:00";
 --
 -- Table structure for table `items`
 --
-
 DROP TABLE IF EXISTS items;
 DROP TABLE IF EXISTS itemsowned;
 DROP TABLE IF EXISTS users;
@@ -36,9 +35,9 @@ CREATE TABLE `items` (
   `id_uniq` int(11) NOT NULL COMMENT 'item id ',
   `type` int(4) NOT NULL COMMENT 'alcohol 1, non alc 2',
   `category` varchar(30) NOT NULL COMMENT 'corks/ caps/ labels',
-  `description` varchar(60) NOT NULL,
-  `country` varchar(10) NOT NULL,
-  `img` mediumtext NOT NULL COMMENT 'image in base64',
+  `description` text NOT NULL,
+  `country` varchar(20) NOT NULL,
+  `img` varchar(40) NOT NULL DEFAULT 'noimage.png',
   `name` varchar(40) NOT NULL,
   `price` int(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -48,17 +47,26 @@ CREATE TABLE `items` (
 --
 
 INSERT INTO `items` (`id_uniq`, `type`, `category`, `description`, `country`, `img`, `name`, `price`) VALUES
-(3, 1, 'dasdsa', 'dsadsadsa', 'dsad', '[object File]', 'dsasda', 23),
-(5, 1, 'dasdsa', 'dsadsadsa', 'dsad', '[object File]', 'dsasda', 23),
-(6, 1, 'dasdsa', 'dsadsadsa', 'dsad', '[object File]', 'dsasda', 23),
-(7, 1, 'cass', 'das', 'dsadas', '[object File]', 'dasd', 22),
-(9, 0, 'das', 'dasd', 'dasdas', '[object File]', 'das', 0),
-(10, 1, 'dasdas', 'dasdsa', '1dsadsa', '[object File]', 'ddasdsadas', 0),
-(11, 1, 'dasdas', 'dasdsa', '1dsadsa', '[object File]', 'ddasdsadas', 0),
-(12, 1, 'dasdas', 'dasdsa', '1dsadsa', '[object File]', 'ddasdsadas', 0),
-(13, 1, 'dasdas', 'dasdsa', '1dsadsa', '[object File]', 'ddasdsadas', 0),
-(14, 2, 'Labels', 'Coke', 'Romania', 'undefined', 'Suc', 5),
-(15, 1, 'Corks', 'da', 'romania', 'undefined', 'Ciuc', 5);
+(31, 1, 'Corks', 'It is obtained from the bridge of the cortex in the oak’s th', 'Germany', 'jepo036btr.jpg', 'One Piece Natural cork', 1),
+(32, 1, 'Corks', 'There are two or more pieces of cork glued together. The cor', 'Poland', '2h9j5wagvi.jpg', 'Multi-Piece cork', 1),
+(33, 1, 'Corks', 'Finally there is the glass cork. It’s an innovation since th', 'Italy', 'zkmijlh4xc.jpg', 'Glass cork', 5),
+(34, 1, 'Corks', 'High quality synthetic corks provide the best air-tight seal', 'Germany', 'bn6jq4xlzo.jpg', 'Synthetic wine cork', 1),
+(35, 1, 'Caps', 'Made out of metal', 'Romania', 'x1no4dzqp8.jpg', 'Neumarkt beer cap', 1),
+(36, 1, 'Caps', 'Made out of metal', 'Romania', 'z06hpqnu75.jpg', 'Ursus Beer Cap', 1),
+(37, 1, 'Caps', 'Made out of metal', 'Romania', 'yq8n06gzpc.jpg', 'Ciucas beer cap', 1),
+(38, 1, 'Labels', 'Old beer label', 'Romania', 'rcedv25kia.jpg', 'Zarand', 11),
+(39, 1, 'Labels', 'Old beeeeeeeeeeeeer label', 'Romania', 'ypjl189vnb.jpg', 'Bajor Sor', 111),
+(40, 1, 'Labels', 'Old beer label', 'Romania', '7ahgm40y8k.jpg', 'Carpatina', 9999),
+(41, 2, 'Corks', 'rubber', 'Romania', '5nwat0kv1c.jpg', 'Rubber cork', 2),
+(42, 2, 'Corks', 'Made for ice', 'Romania', 'j3fsq7xop4.jpg', 'Ice cork', 5),
+(43, 2, 'Corks', 'Made out of aluminium, brown', 'Romania', 'pw5slqz37r.jpg', 'Aluminium cork', 1),
+(44, 2, 'Caps', 'Made out of plastic, green', 'Romania', 'mdvp2yreqn.jpg', 'Dorna Cap', 1),
+(45, 2, 'Caps', 'Made for kids', 'Romania', 'qotx925a37.jpg', 'Aqua Carpatica kids', 5),
+(46, 2, 'Caps', 'Red, made out of plastic', 'United Kingdom', 't4cwls91km.jpg', 'Coca Cola', 1),
+(47, 2, 'Labels', 'Pepsi bottle at 0.5 label', 'Romania', 'r2tp1ovd5x.jpg', 'Pepsi 0.5', 2),
+(48, 2, 'Labels', 'with cherries', 'Romania', 'n9rgjbqzix.jpg', 'Coca Cola cherry', 2),
+(49, 2, 'Labels', 'With vanilla!', 'Romania', 'kl791quviw.jpg', 'Coca Cola Vanilla', 5),
+(50, 2, 'Corks', 'Natural cork closures are made from punching through a piece of cork strip, like a biscuit cutter through dough. The natural structure of cork is perfect for ageing wine as it allows just the right amount of oxygen to come in contact with the wine to allow it to mature. Many wines are not intended to mature in the bottle of course, so only those higher quality wines are suited to using natural corks.', 'Ro', 'oq0jihnb47.jpg', 'Test', 22);
 
 -- --------------------------------------------------------
 
@@ -77,17 +85,28 @@ CREATE TABLE `itemsowned` (
 --
 
 INSERT INTO `itemsowned` (`username`, `id_item`, `id_relationship`) VALUES
-('ffs', 2, 1),
-('ffs', 2, 3),
-('ffs', 3, 4),
-('ffs', 4, 5),
-('ffss', 4, 6),
-('test', 1, 7),
-('test', 3, 8),
-('test', 5, 9),
-('test', 6, 10),
-('test', 4, 11),
-('test', 14, 12);
+('test', 31, 29),
+('test', 32, 30),
+('test', 34, 31),
+('test', 38, 32),
+('test', 43, 33),
+('test', 42, 34),
+('test', 45, 35),
+('test', 40, 36),
+('test', 49, 37),
+('test2', 35, 38),
+('test2', 38, 39),
+('test2', 37, 40),
+('test2', 47, 41),
+('test2', 46, 42),
+('test2', 48, 43),
+('test2', 49, 44),
+('admin', 49, 45),
+('admin', 40, 46),
+('admin', 39, 47),
+('admin', 35, 48),
+('admin', 34, 49),
+('admin', 31, 50);
 
 -- --------------------------------------------------------
 
@@ -107,36 +126,9 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `email`, `user`, `password`) VALUES
-(35, 'admin@colr.com', 'admin', '81dc9bdb52d04dc20036dbd8313ed055'),
-(52, 'asdasaaa', '11ssaaasds', 'c20ad4d76fe97759aa27a0c99bff6710'),
-(62, '12311', '12311', '202cb962ac59075b964b07152d234b70'),
-(63, '123111', '123111', '202cb962ac59075b964b07152d234b70'),
-(65, '12311111', '12311121', '202cb962ac59075b964b07152d234b70'),
-(66, '123111113', '123111212', '202cb962ac59075b964b07152d234b70'),
-(67, '123111113a', '123111212a', '202cb962ac59075b964b07152d234b70'),
-(69, 'asda', 'aa', '202cb962ac59075b964b07152d234b70'),
-(70, 'asdas', 'aaa', '202cb962ac59075b964b07152d234b70'),
-(71, 'asdasa', 'aaas', '202cb962ac59075b964b07152d234b70'),
-(72, 'a', 'a', '0cc175b9c0f1b6a831c399e269772661'),
-(73, 'as', 'as', '4124bc0a9335c27f086f24ba207a4912'),
-(74, 'asa', 'asa', '4124bc0a9335c27f086f24ba207a4912'),
-(75, 'asaa', 'asaa', '4124bc0a9335c27f086f24ba207a4912'),
-(76, 'asaaa', 'asaaa', '4124bc0a9335c27f086f24ba207a4912'),
-(77, 'asaaah', 'asaaah', '4124bc0a9335c27f086f24ba207a4912'),
-(78, 'asaaahg', 'asaaahg', '4124bc0a9335c27f086f24ba207a4912'),
-(79, 'asaaahgf', 'asaaahgf', '4124bc0a9335c27f086f24ba207a4912'),
-(80, 'asaaahgfe', 'asaaahgfz', '4124bc0a9335c27f086f24ba207a4912'),
-(81, '1', '2', '4124bc0a9335c27f086f24ba207a4912'),
-(82, '12', '21', '4124bc0a9335c27f086f24ba207a4912'),
-(83, '124', '213', '4124bc0a9335c27f086f24ba207a4912'),
-(84, '1242', '2132', '4124bc0a9335c27f086f24ba207a4912'),
-(85, '12424', '21324', '4124bc0a9335c27f086f24ba207a4912'),
-(86, '124241', '213241', '4124bc0a9335c27f086f24ba207a4912'),
-(87, '1242412', '2132411', '4124bc0a9335c27f086f24ba207a4912'),
-(88, '12424121', '21324111', '4124bc0a9335c27f086f24ba207a4912'),
-(89, '3', '3', '4124bc0a9335c27f086f24ba207a4912'),
-(90, '4', '4', '4124bc0a9335c27f086f24ba207a4912'),
-(91, '45', '45', '4124bc0a9335c27f086f24ba207a4912');
+(34, 'test@test.com', 'test', '098f6bcd4621d373cade4e832627b4f6'),
+(35, 'test2@gmail.com', 'test2', 'ad0234829205b9033196ba818f7a872b'),
+(36, 'admin@admin.com', 'admin', '21232f297a57a5a743894a0e4a801fc3');
 
 --
 -- Indexes for dumped tables
@@ -168,19 +160,19 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `items`
 --
 ALTER TABLE `items`
-  MODIFY `id_uniq` int(11) NOT NULL AUTO_INCREMENT COMMENT 'item id ', AUTO_INCREMENT=16;
+  MODIFY `id_uniq` int(11) NOT NULL AUTO_INCREMENT COMMENT 'item id ', AUTO_INCREMENT=51;
 
 --
 -- AUTO_INCREMENT for table `itemsowned`
 --
 ALTER TABLE `itemsowned`
-  MODIFY `id_relationship` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id_relationship` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=51;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
+  MODIFY `id` int(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

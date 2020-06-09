@@ -3,7 +3,8 @@
 .logRegFrame {
     display: flex;
     flex-direction: column;
-    width: 500px;
+    width: auto;
+    max-width: 500px;
     border-color: rgb(31, 28, 28);
     border-style: solid;
     margin: auto;
@@ -14,6 +15,7 @@
 .logRegButtons {
     display: flex;
     justify-content: space-between;
+    
 }
 
 .logRegButtons button {

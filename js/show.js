@@ -138,6 +138,23 @@ function showPart(cat, type) {
 
 }
 
+function showOnlyOneItem(id_item){
+    var api = 'http://localhost/php/populateAPI.php?whichOneRss=';
+    api = api.concat(id_item, "&type=onlyOne");
+    fetch(api)
+        .then(result => result.json())
+        .then(data => {
+            console.log(location.href.includes("index.html"));
+            // console.log(data['responseCode']);
+            if (data['responseCode'] == 200) {
+                cleanPage();
+                populate(data['results']);
+            } else alert("Unknown error occured!");
+
+
+        });
+}
+
 function populate(items) {
 
 

@@ -3,13 +3,30 @@ header("Content-Type:application/json");
 header("Access-Control-Allow-Origin:*");
 require_once("connect.php");
 
+if(isset($_GET['whichOneRss'])){
+$whichOneRss = $_GET['whichOneRss'];
 
 
+    $stmt = mysqli_prepare($conn, "SELECT * FROM items WHERE id_uniq = (?)");
+    mysqli_stmt_bind_param($stmt,"s",$whichOneRss);
+    $execResult = $stmt->execute();
+        
+    $response['results'] = $stmt->get_result()->fetch_all();
+    mysqli_stmt_close($stmt);
+    if($execResult == true)
+        $response['responseCode'] = 200;
+    else $response['responseCode'] = 400;
 
+    echo json_encode($response);
+    
+
+
+}
 $sql ="SELECT * FROM items";
 if(isset($_GET['whichOnes'])){
     $type = "";
     $whichOnes = $_GET['whichOnes'];
+    
     if(isset($_GET['type']))
     $type = $_GET['type'];
     if($whichOnes != ""){
