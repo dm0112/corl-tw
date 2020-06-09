@@ -18,7 +18,7 @@
     <script src="js/charts.js"></script>
     <script src="js/chartJsLibrary.js"></script>
     <script src="js/exports.js"></script>
-    
+
 </head>
 
 <body>
@@ -29,9 +29,9 @@
             <div class="subMenu">
                 <a href="index.html#alcoholic" class="subMenuBtn" id="alcoholicSub" onclick="showOnLoad(this)">Alcoholic</a>
                 <div class="subMenuContent">
-                    <a href="index.html#alcoholic#caps" id="alcoholicCaps" onclick="showOnLoad(this)">Caps</a>
-                    <a href="index.html#alcoholic#corks" id="alcoholicCorks" onclick="showOnLoad(this)">Corks</a>
-                    <a href="index.html#alcoholic#labels" id="alcoholicLabels" onclick="showOnLoad(this)">Labels</a>
+                    <a href="index.html#alcoholic_caps" id="alcoholicCaps" onclick="showOnLoad(this)">Caps</a>
+                    <a href="index.html#alcoholic_corks" id="alcoholicCorks" onclick="showOnLoad(this)">Corks</a>
+                    <a href="index.html#alcoholic_labels" id="alcoholicLabels" onclick="showOnLoad(this)">Labels</a>
                 </div>
             </div>
 
@@ -39,9 +39,9 @@
             <div class="subMenu">
                 <a href="index.html#nonAlcoholic" class="subMenuBtn" id="nonAlcoholicSub" onclick="showOnLoad(this)">Non-alcoholic</a>
                 <div class="subMenuContent">
-                    <a href="index.html#nonAlcoholic#caps" id="nonAlcoholicCaps" onclick="showOnLoad(this)">Caps</a>
-                    <a href="index.html#nonAlcoholic#corks" id="nonAlcoholicCorks" onclick="showOnLoad(this)">Corks</a>
-                    <a href="index.html#nonAlcoholic#labels" id="nonAlcoholicLabels" onclick="showOnLoad(this)">Labels</a>
+                    <a href="index.html#nonAlcoholic_caps" id="nonAlcoholicCaps" onclick="showOnLoad(this)">Caps</a>
+                    <a href="index.html#nonAlcoholic_corks" id="nonAlcoholicCorks" onclick="showOnLoad(this)">Corks</a>
+                    <a href="index.html#nonAlcoholic_labels" id="nonAlcoholicLabels" onclick="showOnLoad(this)">Labels</a>
                 </div>
             </div>
         </div>
@@ -54,6 +54,7 @@
             <div class="subMenu" id="loggedIn">
                 <div class="subMenuBtn" id="usernameMenu">User</div>
                 <div class="subMenuContent">
+                    <div class="myItemsBtn" onclick="showMyItems(getCookie())">My items</div>
                     <a href="html/panel.html">User Panel</a>
                     <a onclick="showMyItems(getCookie())">My items</a>
                     <a href="html/admin.html" id="adminPanel" onclick="checkAdminPermissions()">Administrator Panel</a>
@@ -126,7 +127,7 @@
             </div>
             <div>
                 <!-- <label for="addImage">Image</label> -->
-                <input type="file" id="addImage" name="addImage" accept="image/*" >
+                <input type="file" id="addImage" name="addImage" accept="image/*">
             </div>
 
             <div>
@@ -200,7 +201,7 @@
 
             </div>
             <!--  -->
-            
+
             <div>
                 <!-- add item BTN -->
                 <input type="submit" value="exportDocBook" id="exportDocBook" name="exportDocBook" onclick="exportDocBook()">
