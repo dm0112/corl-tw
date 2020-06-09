@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="ro">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>Colr</title>
+    <link rel="stylesheet" type="text/css" href="scholarly.css">
+    <!-- <script src="./scholarly_template_files/scholarly.min.js.download"></script> -->
+</head>
+
+<body prefix="schema: http://schema.org">
+    <header>
+        <h1>Colr Project User Guide</h1>
+    </header>
+    <div role="contentinfo">
+        <ol role="directory">
+            <li><a href="#abstract"><span>1. </span>Abstract</a></li>
+            <li><a href="#introduction"><span>2. </span>Introduction</a></li>
+            <li><a href="#usecases"><span>3. </span>Structure</a>
+                <ol role="directory">
+                    <li><a href="#register"><span>3.1 </span>Register</a></li>
+                    <li><a href="#login"><span>3.2 </span>Login</a></li>
+                    <li><a href="#addItem"><span>3.3 </span>Add Item</a></li>
+                    <li><a href="#search"><span>3.4 </span>Search</a></li>
+                    <li><a href="#export"><span>3.5 </span>Export</a></li>
+                    <li><a href="#changePassword"><span>3.6 </span>Change Password</a></li>
+                    <li><a href="#deleteUser"><span>3.7 </span>Delete User</a></li>
+                    <li><a href="#showMyItems"><span>3.8 </span>Show My Items</a></li>
+                    <li><a href="#showTop"><span>3.9 </span>Show Top</a></li>
+
+                </ol>
+            </li>
+            <li><a href="#biblio-references"><span>4. </span>References</a></li>
+        </ol>
+        <dl>
+            <dt>Authors</dt>
+            <dd>Movila Serban Costin</dd>
+            <dd>Mihai Daniel</dd>
+            <dt>Discussion Group</dt>
+            <dd property="schema:listDiscussionGroup" typeof="schema:DiscussionGroup">
+                <a href="https://github.com/lowlyN/corl-tw" property="schema:linkDiscussionGroup">GitHub
+                        Repository</a>
+            </dd>
+        </dl>
+    </div>
+    <section typeof="sa:Abstract" id="abstract" role="doc-abstract">
+        <h2><span>1. </span>Abstract</h2>
+        <p>
+            Acest document are scopul de a ajuta utilizatorii sa inteleaga flow-ul aplicatiei dezvoltate de noi, cat si sa ofere un mic tutorial de utilizare.
+        </p>
+    </section>
+    <section id="introduction" role="doc-introduction">
+        <h2><span>2. </span>Introduction</h2>
+        <p>
+            Platforma Colr este proiectata a fi folosita de orice persoana interesata de partajarea colectiei personale de capace, dopuri de pluta si etichete. Astfel, este atat simplu de utilizat, cat si secure pentru utilizatori, in ceea ce priveste datele sensibile,
+            precum parola. In prezentul document, vom descrie cateva use case-uri, pentru a veni in ajutorul utilizatorilor noi aplicatiei.
+        </p>
+    </section>
+    <section id="usecases">
+        <h2><span>3. </span>Use cases</h2>
+        <p>
+            Use case-urile prezentate in cadrul acestui capitol arata, impreuna, toate functionalitatile principale prezente pe platforma.
+        </p>
+        <section id="register">
+            <h3><span>3.1 </span>Register
+            </h3>
+            <p>
+                Pentru inregistrare, introduceti in cele 3 campuri disponibile email-ul dumneavoastra, username-ul dorit si parola dorita. Daca inregistrarea nu are succes, veti fi avertizat cu un mesaj corespunzator. Dupa ce ati fost inregistrat cu succes, veti fi redirectionat
+                catre formularul de login.
+            </p>
+
+        </section>
+
+        <section id="login">
+            <h3><span>3.2 </span>Login
+            </h3>
+            <p>
+                Pentru a va putea autentifica pe platforma, trebuie sa introduceti corect username-ul si parola, asa cum le-ati introdus in momentul inregistrarii. Pentru a nu fi necesar sa le introduceti de fiecare data cand va autenficati, puteti apasa pe casuta "Remember
+                me?" pentru a va fi salvate datele. Daca autentificarea nu are succes, sunteti avertizat corespunzator, insa daca aceasta are succes, primiti acces la toate facilitatile utilizatorilor pe platforma Colr.
+            </p>
+        </section>
+
+        <section id="addItem">
+            <h3><span>3.3 </span>Add Item
+            </h3>
+            <p>
+                Pentru a adauga un element pe platforma, trebuie sa navigati pe pagina principala ("Home") si sa apasati butonul "+add item", unde vi se va cere sa introduceti datele produsului de adaugat. La finalizarea procesului, apasati pe butonul "add item". In
+                cazul in care va razganditi, aveti optiunea de a reveni prin butonul "backToSearch"
+            </p>
+
+        </section>
+
+        <section id="search">
+            <h3><span>3.4 </span>Search
+            </h3>
+            <p>
+                Pentru a cauta un element specific in baza de date a tuturor elementelor, trebuie sa navigati pe pagina principala ("Home"), sa introduceti datele dorite in formularul de search prezent, si sa apasati pe butonul "Search". De asemenea, puteti filtra obiectele
+                si dupa butoanele prezente in meniu.
+            </p>
+
+
+        </section>
+
+        <section id="export">
+            <h3><span>3.5 </span>Export
+            </h3>
+            <p>
+                Puteti exporta date in diferite formate (CSV, DocBook, RSS), optiuni prezente pe pagina "Home"
+            </p>
+
+        </section>
+
+        <section id="changePassword">
+            <h3><span>3.6 </span>Change Password
+            </h3>
+            <p>
+                Pentru a schimba parola, utilizatorul poate accesa Panoul Utilizator din meniu si introduce datele necesare in formular. La actionarea butonului "Update Password", daca operatiunea nu are succes, sunteti avertizat corespunzator. Daca parola veche este
+                corecta si cele doua parole noi introduse sunt identice, atunci opertaiunea are succes si paroal este schimbata. Aditional, in cadrul aceleiasi pagini, utilizatorul isi poate modifica si email-ul.
+            </p>
+
+        </section>
+
+        <section id="deleteUser">
+            <h3><span>3.7 </span>Delete User
+            </h3>
+            <p>
+                Administratorul poate accesa o pagina speciala, aceea de "Panou Administrator". In cadrul acestei pagini, administratorul poate radia utilizatori obisnuiti din baza de date. La incarcarea paginii, este necesara confirmarea parolei administratorului, din
+                motive de securitate.
+            </p>
+        </section>
+
+        <section id="showMyItems">
+            <h3><span>3.8 </span>Show My Items
+            </h3>
+            <p>
+                Utilizatorul autentificat isi poate vizualiza colectia accesand butonul "My items" din meniu.
+            </p>
+        </section>
+
+        <section id="showTop">
+            <h3><span>3.9 </span>Show Top
+            </h3>
+            <p>
+                Utilizatorii pot vizualiza topul produselor, dupa numarul aparitiei lor in colectiile utilizatorilor.
+            </p>
+        </section>
+
+
+
+        <section id="biblio-references">
+            <h2><span>4. </span>References</h2>
+            <ul>
+                <li typeof="sa:listTW" property="schema:TW">
+                    <span property="schema:nameReferences">Tehnologii Web</span>
+                    <ul>
+                        <li property="schema:linkReferences" typeof="schema:References">
+                            <a href="https://profs.info.uaic.ro/~busaco/teach/courses/web/" property="schema:linkTW">Curs</a>
+                        </li>
+                    </ul>
+
+                    <ul>
+                        <li property="schema:linkReferences" typeof="schema:References">
+                            <a href="https://devdrive.io/team/Ciprian/web-2020-x" property="schema:linkTW">DevDrive</a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+
+            <ul>
+                <li typeof="sa:listW3" property="schema:W3">
+                    <span property="schema:nameReferencesTutorial">W3 Schools</span>
+                    <ul>
+                        <li property="schema:linkReferencesTutorial" typeof="schema:References">
+                            <a href="https://www.w3schools.com/html/" property="schema:linkHTML">HTML</a>
+                        </li>
+                        <li property="schema:linkReferencesTutorial" typeof="schema:References">
+                            <a href="https://www.w3schools.com/css/" property="schema:linkCSS">CSS</a>
+                        </li>
+                        <li property="schema:linkReferencesTutorial" typeof="schema:References">
+                            <a href="https://www.w3schools.com/js/" property="schema:linkJS">JavaScript</a>
+                        </li>
+                        <li property="schema:linkReferencesTutorial" typeof="schema:References">
+                            <a href="https://www.w3schools.com/php/" property="schema:linkPHP">PHP</a>
+                        </li>
+                        <li property="schema:linkReferencesTutorial" typeof="schema:References">
+                            <a href="https://www.w3schools.com/sql/" property="schema:linkSQL">MySql</a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </section>
+    </section>
+</body>
+
+</html>
